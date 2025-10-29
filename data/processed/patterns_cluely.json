@@ -1,0 +1,437 @@
+{
+  "opening_patterns": [
+    "Hot take: If you're not using AI in interviews, you're already behind",
+    "Unpopular opinion: 'Authentic' communication is overrated",
+    "My AI just negotiated a 30% higher salary for me",
+    "I got called out for using AI to write this post",
+    "Companies: 'We want authentic candidates who are themselves.'\n\nAlso companies: *Uses AI to screen resumes, auto-reject 80% of applicants, and conduct behavioral assessments before you ever talk to a human*\n\nSo when I use Cluely to optimize my interview answers, suddenly it's 'unethical'",
+    "Real talk: Most jobs are just following scripts anyway",
+    "I let AI write my thesis"
+  ],
+  "top_sentence_starters": [
+    [
+      "the",
+      7
+    ],
+    [
+      "cluely",
+      7
+    ],
+    [
+      "you",
+      3
+    ],
+    [
+      "everyone's",
+      2
+    ],
+    [
+      "companies",
+      2
+    ],
+    [
+      "people",
+      2
+    ],
+    [
+      "welcome",
+      2
+    ],
+    [
+      "and",
+      2
+    ],
+    [
+      "i'm",
+      2
+    ],
+    [
+      "hot",
+      1
+    ],
+    [
+      "chatgpt",
+      1
+    ],
+    [
+      "call",
+      1
+    ],
+    [
+      "unpopular",
+      1
+    ],
+    [
+      "result",
+      1
+    ],
+    [
+      "does",
+      1
+    ],
+    [
+      "extra",
+      1
+    ],
+    [
+      "guess",
+      1
+    ],
+    [
+      "here's",
+      1
+    ],
+    [
+      "where's",
+      1
+    ],
+    [
+      "then",
+      1
+    ]
+  ],
+  "common_phrases": [
+    [
+      "you re",
+      7
+    ],
+    [
+      "isn t",
+      6
+    ],
+    [
+      "m just",
+      5
+    ],
+    [
+      "i m just",
+      5
+    ],
+    [
+      "if you",
+      4
+    ],
+    [
+      "you use",
+      4
+    ],
+    [
+      "i let",
+      4
+    ],
+    [
+      "let ai",
+      4
+    ],
+    [
+      "i let ai",
+      4
+    ],
+    [
+      "re already",
+      3
+    ],
+    [
+      "use ai",
+      3
+    ],
+    [
+      "mad at",
+      3
+    ],
+    [
+      "the game",
+      3
+    ],
+    [
+      "using ai",
+      2
+    ],
+    [
+      "everyone s",
+      2
+    ],
+    [
+      "using it",
+      2
+    ],
+    [
+      "they re",
+      2
+    ],
+    [
+      "about it",
+      2
+    ],
+    [
+      "on the",
+      2
+    ],
+    [
+      "memorized beforehand",
+      2
+    ],
+    [
+      "honest about",
+      2
+    ],
+    [
+      "cluely isn",
+      2
+    ],
+    [
+      "just does",
+      2
+    ],
+    [
+      "does it",
+      2
+    ],
+    [
+      "in real",
+      2
+    ],
+    [
+      "real time",
+      2
+    ],
+    [
+      "to write",
+      2
+    ],
+    [
+      "the playing",
+      2
+    ],
+    [
+      "playing field",
+      2
+    ],
+    [
+      "call it",
+      2
+    ],
+    [
+      "this i",
+      2
+    ],
+    [
+      "if you re",
+      2
+    ],
+    [
+      "you re already",
+      2
+    ],
+    [
+      "cluely isn t",
+      2
+    ],
+    [
+      "in real time",
+      2
+    ],
+    [
+      "use ai to",
+      2
+    ],
+    [
+      "ai to write",
+      2
+    ],
+    [
+      "the playing field",
+      2
+    ],
+    [
+      "ai write",
+      2
+    ],
+    [
+      "write my",
+      2
+    ],
+    [
+      "don t",
+      2
+    ],
+    [
+      "t want",
+      2
+    ],
+    [
+      "focus on",
+      2
+    ],
+    [
+      "welcome to",
+      2
+    ],
+    [
+      "the future",
+      2
+    ],
+    [
+      "let ai write",
+      2
+    ],
+    [
+      "ai write my",
+      2
+    ],
+    [
+      "don t want",
+      2
+    ],
+    [
+      "the first",
+      2
+    ],
+    [
+      "say ai",
+      2
+    ]
+  ],
+  "formatting_patterns": {
+    "bold_usage": 0,
+    "bullet_points": 0,
+    "emoji_count": 0,
+    "avg_paragraph_length": 59.56521739130435,
+    "uses_special_characters": false
+  },
+  "tone_indicators": {
+    "questions": 19,
+    "exclamations": 0,
+    "direct_address": 14,
+    "first_person": 23,
+    "second_person": 10
+  },
+  "structure": {
+    "avg_length": 604.8571428571429,
+    "avg_sentences": 16.714285714285715,
+    "avg_words_per_sentence": 6.358974358974359,
+    "avg_paragraphs": 9.857142857142858
+  },
+  "vocabulary": [
+    [
+      "just",
+      13
+    ],
+    [
+      "cluely",
+      11
+    ],
+    [
+      "better",
+      9
+    ],
+    [
+      "about",
+      8
+    ],
+    [
+      "they",
+      7
+    ],
+    [
+      "already",
+      5
+    ],
+    [
+      "want",
+      5
+    ],
+    [
+      "using",
+      4
+    ],
+    [
+      "everyone",
+      4
+    ],
+    [
+      "your",
+      4
+    ],
+    [
+      "write",
+      4
+    ],
+    [
+      "playing",
+      4
+    ],
+    [
+      "what",
+      4
+    ],
+    [
+      "humans",
+      4
+    ],
+    [
+      "game",
+      4
+    ],
+    [
+      "script",
+      4
+    ],
+    [
+      "answers",
+      3
+    ],
+    [
+      "cheating",
+      3
+    ],
+    [
+      "questions",
+      3
+    ],
+    [
+      "real",
+      3
+    ],
+    [
+      "time",
+      3
+    ],
+    [
+      "companies",
+      3
+    ],
+    [
+      "doing",
+      3
+    ],
+    [
+      "authentic",
+      3
+    ],
+    [
+      "maybe",
+      3
+    ],
+    [
+      "first",
+      3
+    ],
+    [
+      "them",
+      3
+    ],
+    [
+      "machines",
+      3
+    ],
+    [
+      "tools",
+      3
+    ],
+    [
+      "when",
+      3
+    ]
+  ]
+}

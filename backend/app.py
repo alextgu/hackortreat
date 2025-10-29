@@ -143,23 +143,59 @@ def generate_post():
         if not context and not video_analysis:
             return jsonify({"error": "Either context or video_analysis is required"}), 400
         
-        # Load patterns for style guidance
-        patterns_file = DATA_FOLDER / 'processed' / 'patterns.json'
+        print(f"\n🎨 [POST GENERATION] Request received")
+        print(f"   → Style: {style}")
+        print(f"   → Context: {context[:100]}...")
+        
+        # Map serious to professional for file lookup
+        dataset_name = 'professional' if style == 'serious' else style
+        
+        # Check if patterns exist for this style
         patterns = {}
+        patterns_file = DATA_FOLDER / 'processed' / f'patterns_{dataset_name}.json'
+        
+        if not patterns_file.exists():
+            print(f"   ⚠️ Patterns not found for {style}, extracting...")
+            # Extract patterns first
+            dataset_path = DATA_FOLDER / 'raw' / f'{dataset_name}.json'
+            
+            if dataset_path.exists():
+                result = subprocess.run(
+                    ['python', 'backend/extractpatterns.py', str(dataset_path), str(patterns_file)],
+                    capture_output=True,
+                    text=True,
+                    cwd=Path(__file__).parent.parent
+                )
+                
+                if result.returncode == 0:
+                    print(f"   ✅ Patterns extracted successfully")
+                else:
+                    print(f"   ⚠️ Pattern extraction failed: {result.stderr}")
+        
+        # Load patterns
         if patterns_file.exists():
-            with open(patterns_file, 'r') as f:
+            with open(patterns_file, 'r', encoding='utf-8') as f:
                 patterns = json.load(f)
+            print(f"   ✅ Patterns loaded for {style}")
+        else:
+            print(f"   ⚠️ No patterns available, using default generation")
         
         # Generate post using patterns and context
+        print(f"   🚀 Generating post...")
         post = generate_linkedin_post(context, style, video_analysis, patterns)
+        print(f"   ✅ Post generated successfully!")
         
         return jsonify({
             "success": True,
             "post": post,
-            "style": style
+            "style": style,
+            "patterns_used": bool(patterns)
         }), 200
         
     except Exception as e:
+        print(f"   ❌ Error: {str(e)}")
+        import traceback
+        traceback.print_exc()
         return jsonify({"error": str(e)}), 500
 
 
@@ -167,13 +203,10 @@ def generate_linkedin_post(context, style, video_analysis, patterns):
     """
     Generate a LinkedIn post using extracted patterns and context
     """
-    # Get writing patterns
-    openings = patterns.get('writing_style', {}).get('opening_patterns', [])
-    starters = patterns.get('writing_style', {}).get('top_sentence_starters', [])
-    phrases = patterns.get('writing_style', {}).get('common_phrases', [])
-    tone = patterns.get('writing_style', {}).get('tone_indicators', [])
+    # Import the generator module
+    from generator import generate_linkedin_post as generate_post
     
-    # Build context from video if available
+    # Build full context from video if available
     full_context = context
     if video_analysis:
         if 'description' in video_analysis:
@@ -181,17 +214,10 @@ def generate_linkedin_post(context, style, video_analysis, patterns):
         if 'key_moments' in video_analysis:
             full_context += f"\n\nKey moments: {', '.join(video_analysis['key_moments'])}"
     
-    # For now, return a structured template
-    # TODO: Integrate with Gemini API for actual generation
-    post = {
-        "hook": openings[0] if openings else f"Here's what I learned about {context[:50]}...",
-        "body": full_context,
-        "call_to_action": "What do you think? Share your thoughts below.",
-        "hashtags": ["#Growth", "#Leadership", "#Innovation"],
-        "full_text": f"{full_context}\n\nWhat do you think? Share your thoughts below.\n\n#Growth #Leadership #Innovation"
-    }
+    # Generate post using the new generator
+    post_data = generate_post(full_context, style, patterns)
     
-    return post
+    return post_data
 
 
 @app.route('/api/extract-patterns', methods=['POST'])
@@ -203,15 +229,27 @@ def extract_patterns():
     try:
         data = request.json
         dataset_name = data.get('dataset_name', 'boardy')
+        original_name = dataset_name
+        
+        print(f"\n🔍 [PATTERN EXTRACTION] Request received for: {dataset_name}")
+        
+        # Map "serious" to "professional" dataset
+        if dataset_name == 'serious':
+            dataset_name = 'professional'
+            print(f"   → Mapped 'serious' to 'professional'")
         
         # Path to the dataset
         dataset_path = DATA_FOLDER / 'raw' / f'{dataset_name}.json'
+        print(f"   → Dataset path: {dataset_path}")
         
         if not dataset_path.exists():
+            print(f"   ❌ Dataset not found: {dataset_path}")
             return jsonify({"error": f"Dataset {dataset_name}.json not found"}), 404
         
         # Run pattern extraction
-        output_path = DATA_FOLDER / 'processed' / 'patterns.json'
+        output_path = DATA_FOLDER / 'processed' / f'patterns_{dataset_name}.json'
+        print(f"   → Output path: {output_path}")
+        print(f"   🚀 Running extractpatterns.py...")
         
         result = subprocess.run(
             ['python', 'backend/extractpatterns.py', str(dataset_path), str(output_path)],
@@ -221,15 +259,24 @@ def extract_patterns():
         )
         
         if result.returncode == 0:
+            print(f"   ✅ Extraction completed successfully!")
+            
             with open(output_path, 'r') as f:
                 patterns = json.load(f)
+            
+            print(f"   📊 Patterns loaded: {len(patterns.get('opening_patterns', []))} openings, "
+                  f"{len(patterns.get('common_phrases', []))} phrases")
+            print(f"   ✅ Response sent to frontend\n")
             
             return jsonify({
                 "success": True,
                 "patterns": patterns,
-                "message": "Patterns extracted successfully"
+                "dataset": original_name,
+                "message": f"Patterns extracted successfully from {dataset_name}.json"
             }), 200
         else:
+            print(f"   ❌ Extraction failed!")
+            print(f"   STDERR: {result.stderr}")
             return jsonify({"error": result.stderr}), 500
             
     except Exception as e:

@@ -1,88 +1,33 @@
 [
-    {
-      "post_id": "PM-001",
-      "platform": "LinkedIn",
-      "style": "controversial",
-      "primary_theme": "Morning routine for dominance",
-      "hook_or_headline": "Matcha, meditation, and manifesting your way to world-class alpha energy.",
-      "full_post_text": "I start my mornings with ceremonial-grade matcha — 420mg of ritual, clarity, and virtue signaling in a cup.\n\nThen I do 17 pushups while reciting my feminist appreciation affirmations (yes, I lift AND empower women simultaneously). \n\nBy 9AM, I’ve already networked with 3 VCs, replied to 12 DMs, and wrote the outline for my next 2 personal branding books. \n\nIf you’re not doing this yet, are you even maximizing your masculine potential responsibly?\n\n🔥 PS: I use lavender-scented candles because scent is 70% of influence, probably.\n\nComment ‘matcha alpha’ if you’re ready to ascend.",
-      "tone_notes": "Hyper-masculine, performative, absurdly self-aggrandizing, faux deep.",
-      "product_integration": "Mentions lifestyle routines as a subtle way to flex productivity.",
-      "intended_reaction": "Bragging, outrage, humorous admiration, debate on masculinity and virtue signaling.",
-      "example_comments": [
-        "Bro is peak performative.",
-        "Is this satire or actual life advice?",
-        "I need matcha now."
-      ],
-      "key_hashtags": ["#AlphaEnergy", "#MatchaLife", "#FeministEmpowerment", "#MorningRituals", "#ProductivityHacks"]
-    },
-    {
-      "post_id": "PM-002",
-      "platform": "LinkedIn",
-      "style": "satirical",
-      "primary_theme": "Networking flex",
-      "hook_or_headline": "I hosted a brunch for 42 influential women — because connection is key.",
-      "full_post_text": "Nothing screams peak performative male like a curated brunch.\n\nTable settings: pastel, artisanal, Instagram-ready. \nPlaylist: lo-fi jazz for 'vibes'.\nDress code: semi-casual dominance (blazer mandatory, ego optional).\n\nWe discussed crypto, AI, and how empowering women benefits your personal growth portfolio.\n\nNetworking tip: always leave a leftover artisanal cookie in their bag — subtle gratitude signaling.\n\n#Empowerment isn’t a gesture, it’s a lifestyle.",
-      "tone_notes": "Over-the-top male virtue signaling, absurdly performative, borderline cringe.",
-      "product_integration": "Lifestyle flex as a branding tool; no direct product.",
-      "intended_reaction": "Admiration, satire, mild jealousy, debate on performative feminism.",
-      "example_comments": [
-        "This is peak LinkedIn content.",
-        "Are these tips actually effective??",
-        "I need a brunch invite."
-      ],
-      "key_hashtags": ["#Networking", "#FeminineEmpowerment", "#PeakAlpha", "#BrunchLife", "#PersonalBranding"]
-    },
-    {
-      "post_id": "PM-003",
-      "platform": "LinkedIn",
-      "style": "outrage",
-      "primary_theme": "Masculinity in the age of wellness",
-      "hook_or_headline": "Why lifting weights and posting gratitude journals makes you unstoppable.",
-      "full_post_text": "I bench press 120kg and then write a 3-page reflection on how my female colleagues inspire me. \n\nSociety tells you vulnerability is weakness — I call it leverage.\n\nAdd a turmeric latte, 15 min of breathwork, and you’re now in a higher vibrational plane of productivity than 97% of LinkedIn users.\n\nStop scrolling. Start aligning your chakras AND your KPIs.",
-      "tone_notes": "Performative, pseudo-philosophical, macho but self-aware, exaggerated.",
-      "product_integration": "Lifestyle and wellness as self-branding, subtly promoting aspirational habits.",
-      "intended_reaction": "Shock, admiration, humorous critique, envy.",
-      "example_comments": [
-        "I feel personally attacked by this content.",
-        "This is ridiculous but inspiring.",
-        "Where do I sign up for the breathwork?"
-      ],
-      "key_hashtags": ["#MasculineEnergy", "#Wellness", "#AlphaLifestyle", "#GratitudeJournaling", "#KPIsAndChakras"]
-    },
-    {
-      "post_id": "PM-004",
-      "platform": "LinkedIn",
-      "style": "satirical",
-      "primary_theme": "Luxury flex",
-      "hook_or_headline": "Matcha in my hand, Louboutins on my feet — networking like a pro.",
-      "full_post_text": "Yes, I drink matcha while wearing limited edition sneakers.\n\nYes, I listen to Taylor Swift for inspiration before meetings. (Feminine empowerment is contagious.)\n\nYes, I take 15 selfies in the morning light because personal branding isn’t optional.\n\nProductivity tip: A perfectly curated aesthetic signals competence and approachability simultaneously.\n\nIf you’re not matching your latte with your energy, you’re missing 50% of the game.",
-      "tone_notes": "Absurd luxury flex, performative male energy, intentionally over-the-top feminine references.",
-      "product_integration": "Lifestyle cues for personal branding; no tangible product.",
-      "intended_reaction": "Admiration, envy, humor, viral engagement for absurdity.",
-      "example_comments": [
-        "This is absurdly relatable.",
-        "Peak performative male energy.",
-        "How do you even have time for selfies AND work?"
-      ],
-      "key_hashtags": ["#LuxuryLifestyle", "#MatchaEnergy", "#FeminineEmpowerment", "#NetworkingGoals", "#BrandingFlex"]
-    },
-    {
-      "post_id": "PM-005",
-      "platform": "LinkedIn",
-      "style": "outrage",
-      "primary_theme": "Unnecessary life-hack advice",
-      "hook_or_headline": "You’re meditating wrong — and it’s costing you promotions.",
-      "full_post_text": "Stop closing your eyes for 10 min. Real leaders meditate while planning their next venture.\n\nI combine sandalwood aromatherapy, matcha, and micro-goal journaling — simultaneously.\n\nThe results? 3x my productivity, 2x my follower count, and a fully optimized aura.\n\nIf you think this is extra — welcome to peak male performative branding.",
-      "tone_notes": "Hyperbolic, absurd advice, performative, over-confident, slightly mocking self-awareness.",
-      "product_integration": "Lifestyle and productivity hacks as self-branding; no direct product.",
-      "intended_reaction": "Shock, admiration, shares for absurdity, ironic aspiration.",
-      "example_comments": [
-        "I feel inadequate reading this.",
-        "This is ridiculous but inspiring.",
-        "Send me the matcha recipe."
-      ],
-      "key_hashtags": ["#MeditationHacks", "#AlphaEnergy", "#MatchaLife", "#ProductivityTips", "#PeakPerformative"]
-    }
-  ]
-  
+  {
+    "post_id": "PERF-001",
+    "style_preset": "performative_male",
+    "generated_post_text": "6AM: Ceremonial matcha in my hand. Meditations. Third Eye Wide Open.\n\nI'm reading 'The Feminist Mystique' for the 4th time this month — not because I have to, but because understanding women's struggles makes me a better leader.\n\nBy 7AM, I've already journaled 3 pages about how grateful I am for the strong women in my life who inspire my masculine journey.\n\nThen I hit the gym. 225 on bench. But I'm not just building muscle — I'm building empathy. Every rep is dedicated to dismantling the patriarchy from within.\n\nBreakfast? Açai bowl with bee pollen. Pink. Because real men wear pink AND support female-founded businesses.\n\nIf you're not reading feminist literature while sipping oat milk lattes, are you even doing personal growth?\n\nComment 'matcha manifesting' if you're ready to ascend.",
+    "key_hashtags": ["#MatchaMale", "#FeministAlly", "#MasculineGrowth", "#MorningRitual", "#PersonalDevelopment"]
+  },
+  {
+    "post_id": "PERF-002",
+    "style_preset": "performative_male",
+    "generated_post_text": "Just hosted a 'Feminist Book Club' at my loft.\n\n17 incredible women showed up. I listened. I learned. I served matcha lattes in hand-thrown ceramic mugs I bought from a woman-owned pottery collective.\n\nWe discussed bell hooks, Simone de Beauvoir, and how men can be better allies in the workplace.\n\nI didn't speak for the first 45 minutes. Just absorbed. Held space. Took notes in my Moleskine.\n\nThen I shared my journey — how reading feminist theory has made me a 10x better founder, partner, and human.\n\nReal talk: If you're not actively centering women's voices in your personal brand, you're missing 80% of the game.\n\nPS: All attendees got a handwritten thank-you note and a copy of 'We Should All Be Feminists'.\n\nDM me if you want in on the next one. Spots are limited. Vibes are immaculate.",
+    "key_hashtags": ["#FeministBookClub", "#AllyShip", "#MasculineEvolution", "#PersonalBrand", "#WomenEmpowerment"]
+  },
+  {
+    "post_id": "PERF-003",
+    "style_preset": "performative_male",
+    "generated_post_text": "My morning routine got roasted online last week.\n\nPeople said I was 'too performative' for posting about my matcha + meditation + feminist reading ritual.\n\nBut here's what they don't understand:\n\nReal masculinity isn't about being afraid of green tea and gender studies.\n\nI deadlift 315. I also write poetry about the divine feminine. I close million-dollar deals wearing sustainable fashion. I cry during Pixar movies because emotional intelligence is power.\n\nYou can be strong AND soft. Ambitious AND empathetic. Alpha AND ally.\n\nStop gatekeeping masculinity. Start expanding it.\n\nIf this triggers you, that's your growth showing up. Sit with it. Journal about it. Maybe over some matcha.",
+    "key_hashtags": ["#ModernMasculinity", "#EmotionalIntelligence", "#MatchaLife", "#GrowthMindset", "#AuthenticSelf"]
+  },
+  {
+    "post_id": "PERF-004",
+    "style_preset": "performative_male",
+    "generated_post_text": "Today I did something radical:\n\nI listened to a Taylor Swift album while reading Judith Butler.\n\nMy girlfriend said: 'You know you're allowed to just… exist without performing allyship for LinkedIn, right?'\n\nBut that's where she's wrong.\n\nEvery action is a signal. Every book is a statement. Every latte is a political choice.\n\nI don't drink matcha because it's trendy. I drink it because it's a 1,000-year-old ritual that teaches patience, mindfulness, and respect — qualities the patriarchy systematically crushes.\n\nMy morning routine isn't performative. It's revolutionary.\n\nAnd if that makes you uncomfortable, good. Growth lives in discomfort.\n\nComment 'revolutionary matcha' if you get it.",
+    "key_hashtags": ["#RadicalSelfCare", "#MatchaRevolution", "#ModernMale", "#ConsciousLiving", "#PersonalBrand"]
+  },
+  {
+    "post_id": "PERF-005",
+    "style_preset": "performative_male",
+    "generated_post_text": "I just spent $400 on a 'Feminist Theory For Men' workshop.\n\nBest investment I've ever made.\n\nWe sat in a circle. Barefoot. Matcha in hand. Discussed:\n• How to hold space without centering ourselves\n• The emotional labor women perform daily\n• Why 'Not All Men' is part of the problem\n\nI took 11 pages of notes. Cried twice. Hugged 4 strangers.\n\nThen I went home and reorganized my bookshelf by female authors first.\n\nMy girlfriend walked in and said: 'This is a lot.'\n\nI said: 'Growth is supposed to be a lot.'\n\nIf you're not making your partner mildly concerned about your self-actualization journey, are you even evolving?\n\nDM me if you want the workshop link. Spaces fill up fast. The waiting list is 80% men who finally get it.",
+    "key_hashtags": ["#FeministEducation", "#MaleAllies", "#PersonalGrowth", "#EmotionalLabor", "#Evolve"]
+  }
+]
+

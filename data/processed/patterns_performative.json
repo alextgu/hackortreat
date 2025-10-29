@@ -1,0 +1,415 @@
+{
+  "opening_patterns": [
+    "6AM: Ceremonial matcha in my hand",
+    "Just hosted a 'Feminist Book Club' at my loft",
+    "My morning routine got roasted online last week",
+    "Today I did something radical:\n\nI listened to a Taylor Swift album while reading Judith Butler",
+    "I just spent $400 on a 'Feminist Theory For Men' workshop"
+  ],
+  "top_sentence_starters": [
+    [
+      "then",
+      3
+    ],
+    [
+      "comment",
+      2
+    ],
+    [
+      "6am",
+      1
+    ],
+    [
+      "i'm",
+      1
+    ],
+    [
+      "breakfast",
+      1
+    ],
+    [
+      "just",
+      1
+    ],
+    [
+      "real",
+      1
+    ],
+    [
+      "people",
+      1
+    ],
+    [
+      "but",
+      1
+    ],
+    [
+      "you",
+      1
+    ],
+    [
+      "stop",
+      1
+    ],
+    [
+      "today",
+      1
+    ],
+    [
+      "every",
+      1
+    ],
+    [
+      "and",
+      1
+    ],
+    [
+      "best",
+      1
+    ]
+  ],
+  "common_phrases": [
+    [
+      "if you",
+      7
+    ],
+    [
+      "you re",
+      6
+    ],
+    [
+      "if you re",
+      4
+    ],
+    [
+      "for the",
+      3
+    ],
+    [
+      "then i",
+      3
+    ],
+    [
+      "re not",
+      3
+    ],
+    [
+      "you re not",
+      3
+    ],
+    [
+      "matcha in",
+      2
+    ],
+    [
+      "women s",
+      2
+    ],
+    [
+      "the patriarchy",
+      2
+    ],
+    [
+      "reading feminist",
+      2
+    ],
+    [
+      "are you",
+      2
+    ],
+    [
+      "you even",
+      2
+    ],
+    [
+      "are you even",
+      2
+    ],
+    [
+      "a feminist",
+      2
+    ],
+    [
+      "i listened",
+      2
+    ],
+    [
+      "in hand",
+      2
+    ],
+    [
+      "can be",
+      2
+    ],
+    [
+      "feminist theory",
+      2
+    ],
+    [
+      "of the",
+      2
+    ],
+    [
+      "you want",
+      2
+    ],
+    [
+      "dm me if",
+      2
+    ],
+    [
+      "me if you",
+      2
+    ],
+    [
+      "if you want",
+      2
+    ],
+    [
+      "my morning",
+      2
+    ],
+    [
+      "morning routine",
+      2
+    ],
+    [
+      "don t",
+      2
+    ],
+    [
+      "isn t",
+      2
+    ],
+    [
+      "that s",
+      2
+    ],
+    [
+      "my morning routine",
+      2
+    ],
+    [
+      "my girlfriend",
+      2
+    ],
+    [
+      "because it",
+      2
+    ],
+    [
+      "get it",
+      2
+    ],
+    [
+      "because it s",
+      2
+    ],
+    [
+      "a lot",
+      2
+    ],
+    [
+      "6am ceremonial",
+      1
+    ],
+    [
+      "ceremonial matcha",
+      1
+    ],
+    [
+      "my hand",
+      1
+    ],
+    [
+      "hand meditations",
+      1
+    ],
+    [
+      "meditations third",
+      1
+    ],
+    [
+      "third eye",
+      1
+    ],
+    [
+      "eye wide",
+      1
+    ],
+    [
+      "wide open",
+      1
+    ],
+    [
+      "open i",
+      1
+    ],
+    [
+      "m reading",
+      1
+    ],
+    [
+      "reading the",
+      1
+    ],
+    [
+      "the feminist",
+      1
+    ],
+    [
+      "feminist mystique",
+      1
+    ],
+    [
+      "mystique for",
+      1
+    ],
+    [
+      "the 4th",
+      1
+    ]
+  ],
+  "formatting_patterns": {
+    "bold_usage": 0,
+    "bullet_points": 3,
+    "emoji_count": 0,
+    "avg_paragraph_length": 88.60975609756098,
+    "uses_special_characters": true
+  },
+  "tone_indicators": {
+    "questions": 4,
+    "exclamations": 0,
+    "direct_address": 10,
+    "first_person": 23,
+    "second_person": 6
+  },
+  "structure": {
+    "avg_length": 741.0,
+    "avg_sentences": 15.0,
+    "avg_words_per_sentence": 8.52,
+    "avg_paragraphs": 8.2
+  },
+  "vocabulary": [
+    [
+      "matcha",
+      8
+    ],
+    [
+      "feminist",
+      6
+    ],
+    [
+      "because",
+      6
+    ],
+    [
+      "about",
+      6
+    ],
+    [
+      "reading",
+      5
+    ],
+    [
+      "women",
+      5
+    ],
+    [
+      "just",
+      5
+    ],
+    [
+      "every",
+      4
+    ],
+    [
+      "growth",
+      4
+    ],
+    [
+      "your",
+      4
+    ],
+    [
+      "said",
+      4
+    ],
+    [
+      "hand",
+      3
+    ],
+    [
+      "better",
+      3
+    ],
+    [
+      "journey",
+      3
+    ],
+    [
+      "then",
+      3
+    ],
+    [
+      "real",
+      3
+    ],
+    [
+      "makes",
+      2
+    ],
+    [
+      "pages",
+      2
+    ],
+    [
+      "strong",
+      2
+    ],
+    [
+      "building",
+      2
+    ],
+    [
+      "patriarchy",
+      2
+    ],
+    [
+      "pink",
+      2
+    ],
+    [
+      "female",
+      2
+    ],
+    [
+      "while",
+      2
+    ],
+    [
+      "lattes",
+      2
+    ],
+    [
+      "even",
+      2
+    ],
+    [
+      "personal",
+      2
+    ],
+    [
+      "comment",
+      2
+    ],
+    [
+      "book",
+      2
+    ],
+    [
+      "listened",
+      2
+    ]
+  ]
+}

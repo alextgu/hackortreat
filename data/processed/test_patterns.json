@@ -1,0 +1,437 @@
+{
+  "opening_patterns": [
+    "if you’re tired of feeling like everyone’s life is moving faster than yours - read this:\n\nyour breakthrough starts where your comparison ends",
+    "The Boardy Fellowship is doing too well...and 𝘄𝗲 𝗻𝗲𝗲𝗱 𝗺𝗼𝗿𝗲 𝗽𝗲𝗼𝗽𝗹𝗲",
+    "i’ve almost given up on my dream more times than I can count\n\nit all started with a dream\n\na dream to push myself in this game of life\n\na dream that tried to hide itself from me when it seemed so far away\n\na dream that that tried to fade when times got tough\n\nit really just is you against you at the end of the day\n\nhow far could I go if…\n\nif what",
+    "💭 A year ago, I felt stuck",
+    "My best friends are balding",
+    "my friend wanted a girlfriend",
+    "i got ghosted for sending a long paragraph .."
+  ],
+  "top_sentence_starters": [
+    [
+      "you",
+      3
+    ],
+    [
+      "that’s",
+      3
+    ],
+    [
+      "and",
+      2
+    ],
+    [
+      "but",
+      2
+    ],
+    [
+      "the",
+      2
+    ],
+    [
+      "we’re",
+      2
+    ],
+    [
+      "this",
+      2
+    ],
+    [
+      "new",
+      1
+    ],
+    [
+      "every",
+      1
+    ],
+    [
+      "once",
+      1
+    ],
+    [
+      "because",
+      1
+    ],
+    [
+      "𝗪𝗵𝗮𝘁",
+      1
+    ],
+    [
+      "𝗛𝗲𝗿𝗲'𝘀",
+      1
+    ],
+    [
+      "i’m",
+      1
+    ],
+    [
+      "don’t",
+      1
+    ],
+    [
+      "i’ve",
+      1
+    ],
+    [
+      "didn’t",
+      1
+    ],
+    [
+      "fast",
+      1
+    ],
+    [
+      "here’s",
+      1
+    ],
+    [
+      "talk",
+      1
+    ]
+  ],
+  "common_phrases": [
+    [
+      "the same",
+      5
+    ],
+    [
+      "you want",
+      5
+    ],
+    [
+      "want to",
+      5
+    ],
+    [
+      "if you",
+      4
+    ],
+    [
+      "you re",
+      4
+    ],
+    [
+      "you can",
+      4
+    ],
+    [
+      "looking for",
+      4
+    ],
+    [
+      "for the",
+      4
+    ],
+    [
+      "don t",
+      4
+    ],
+    [
+      "you want to",
+      4
+    ],
+    [
+      "a dream",
+      4
+    ],
+    [
+      "your own",
+      3
+    ],
+    [
+      "s the",
+      3
+    ],
+    [
+      "if you want",
+      3
+    ],
+    [
+      "are you",
+      3
+    ],
+    [
+      "that s",
+      3
+    ],
+    [
+      "the perfect",
+      3
+    ],
+    [
+      "for the perfect",
+      3
+    ],
+    [
+      "the right",
+      3
+    ],
+    [
+      "the most",
+      3
+    ],
+    [
+      "this is",
+      3
+    ],
+    [
+      "you scroll",
+      2
+    ],
+    [
+      "are they",
+      2
+    ],
+    [
+      "it felt",
+      2
+    ],
+    [
+      "felt like",
+      2
+    ],
+    [
+      "because when",
+      2
+    ],
+    [
+      "when you",
+      2
+    ],
+    [
+      "the more",
+      2
+    ],
+    [
+      "here s",
+      2
+    ],
+    [
+      "people who",
+      2
+    ],
+    [
+      "it felt like",
+      2
+    ],
+    [
+      "because when you",
+      2
+    ],
+    [
+      "here s the",
+      2
+    ],
+    [
+      "is doing",
+      2
+    ],
+    [
+      "to join",
+      2
+    ],
+    [
+      "not looking",
+      2
+    ],
+    [
+      "connect with",
+      2
+    ],
+    [
+      "want to join",
+      2
+    ],
+    [
+      "not looking for",
+      2
+    ],
+    [
+      "in this",
+      2
+    ],
+    [
+      "dream that",
+      2
+    ],
+    [
+      "that tried",
+      2
+    ],
+    [
+      "tried to",
+      2
+    ],
+    [
+      "the day",
+      2
+    ],
+    [
+      "what i",
+      2
+    ],
+    [
+      "i will",
+      2
+    ],
+    [
+      "life and",
+      2
+    ],
+    [
+      "your dream",
+      2
+    ],
+    [
+      "all the",
+      2
+    ],
+    [
+      "with the",
+      2
+    ]
+  ],
+  "formatting_patterns": {
+    "bold_usage": 1,
+    "bullet_points": 3,
+    "emoji_count": 2,
+    "avg_paragraph_length": 95.77142857142857,
+    "uses_special_characters": true
+  },
+  "tone_indicators": {
+    "questions": 16,
+    "exclamations": 5,
+    "direct_address": 40,
+    "first_person": 22,
+    "second_person": 28
+  },
+  "structure": {
+    "avg_length": 975.7142857142857,
+    "avg_sentences": 15.428571428571429,
+    "avg_words_per_sentence": 11.583333333333334,
+    "avg_paragraphs": 10.0
+  },
+  "vocabulary": [
+    [
+      "your",
+      13
+    ],
+    [
+      "people",
+      12
+    ],
+    [
+      "what",
+      10
+    ],
+    [
+      "boardy",
+      9
+    ],
+    [
+      "just",
+      9
+    ],
+    [
+      "dream",
+      9
+    ],
+    [
+      "because",
+      8
+    ],
+    [
+      "they",
+      7
+    ],
+    [
+      "more",
+      7
+    ],
+    [
+      "want",
+      7
+    ],
+    [
+      "same",
+      6
+    ],
+    [
+      "most",
+      6
+    ],
+    [
+      "life",
+      5
+    ],
+    [
+      "doing",
+      5
+    ],
+    [
+      "think",
+      5
+    ],
+    [
+      "time",
+      5
+    ],
+    [
+      "around",
+      5
+    ],
+    [
+      "when",
+      5
+    ],
+    [
+      "their",
+      5
+    ],
+    [
+      "start",
+      5
+    ],
+    [
+      "them",
+      5
+    ],
+    [
+      "about",
+      5
+    ],
+    [
+      "feeling",
+      4
+    ],
+    [
+      "like",
+      4
+    ],
+    [
+      "every",
+      4
+    ],
+    [
+      "looking",
+      4
+    ],
+    [
+      "week",
+      4
+    ],
+    [
+      "much",
+      4
+    ],
+    [
+      "waiting",
+      4
+    ],
+    [
+      "than",
+      3
+    ]
+  ]
+}

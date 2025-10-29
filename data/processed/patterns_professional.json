@@ -1,0 +1,383 @@
+{
+  "opening_patterns": [
+    "Early in my career, my mentor asked me one simple question: 'What problem do you want to solve?' \n\nIt made me realize that focusing on tasks won’t drive growth — solving meaningful problems does",
+    "At first, scheduling every hour seemed overkill",
+    "I used to treat LinkedIn as a Rolodex of connections",
+    "Last year, I led a project that completely missed the mark",
+    "I used to write long, meandering emails that got ignored"
+  ],
+  "top_sentence_starters": [
+    [
+      "lesson",
+      5
+    ],
+    [
+      "early",
+      1
+    ],
+    [
+      "breaking",
+      1
+    ],
+    [
+      "now",
+      1
+    ],
+    [
+      "last",
+      1
+    ],
+    [
+      "example",
+      1
+    ],
+    [
+      "clarity",
+      1
+    ]
+  ],
+  "common_phrases": [
+    [
+      "then i",
+      4
+    ],
+    [
+      "at first",
+      2
+    ],
+    [
+      "and prevents",
+      2
+    ],
+    [
+      "isn t",
+      2
+    ],
+    [
+      "i used",
+      2
+    ],
+    [
+      "used to",
+      2
+    ],
+    [
+      "i used to",
+      2
+    ],
+    [
+      "early in",
+      1
+    ],
+    [
+      "my career",
+      1
+    ],
+    [
+      "career my",
+      1
+    ],
+    [
+      "my mentor",
+      1
+    ],
+    [
+      "mentor asked",
+      1
+    ],
+    [
+      "asked me",
+      1
+    ],
+    [
+      "me one",
+      1
+    ],
+    [
+      "one simple",
+      1
+    ],
+    [
+      "simple question",
+      1
+    ],
+    [
+      "question what",
+      1
+    ],
+    [
+      "what problem",
+      1
+    ],
+    [
+      "problem do",
+      1
+    ],
+    [
+      "do you",
+      1
+    ],
+    [
+      "you want",
+      1
+    ],
+    [
+      "want to",
+      1
+    ],
+    [
+      "to solve",
+      1
+    ],
+    [
+      "solve it",
+      1
+    ],
+    [
+      "it made",
+      1
+    ],
+    [
+      "made me",
+      1
+    ],
+    [
+      "me realize",
+      1
+    ],
+    [
+      "realize that",
+      1
+    ],
+    [
+      "that focusing",
+      1
+    ],
+    [
+      "focusing on",
+      1
+    ],
+    [
+      "on tasks",
+      1
+    ],
+    [
+      "tasks won",
+      1
+    ],
+    [
+      "won t",
+      1
+    ],
+    [
+      "t drive",
+      1
+    ],
+    [
+      "drive growth",
+      1
+    ],
+    [
+      "growth solving",
+      1
+    ],
+    [
+      "solving meaningful",
+      1
+    ],
+    [
+      "meaningful problems",
+      1
+    ],
+    [
+      "problems does",
+      1
+    ],
+    [
+      "does since",
+      1
+    ],
+    [
+      "since then",
+      1
+    ],
+    [
+      "ve prioritized",
+      1
+    ],
+    [
+      "prioritized projects",
+      1
+    ],
+    [
+      "projects that",
+      1
+    ],
+    [
+      "that challenge",
+      1
+    ],
+    [
+      "challenge me",
+      1
+    ],
+    [
+      "me and",
+      1
+    ],
+    [
+      "and create",
+      1
+    ],
+    [
+      "create impact",
+      1
+    ],
+    [
+      "impact it",
+      1
+    ]
+  ],
+  "formatting_patterns": {
+    "bold_usage": 0,
+    "bullet_points": 0,
+    "emoji_count": 1,
+    "avg_paragraph_length": 106.95,
+    "uses_special_characters": false
+  },
+  "tone_indicators": {
+    "questions": 3,
+    "exclamations": 0,
+    "direct_address": 3,
+    "first_person": 14,
+    "second_person": 1
+  },
+  "structure": {
+    "avg_length": 433.8,
+    "avg_sentences": 6.0,
+    "avg_words_per_sentence": 11.166666666666666,
+    "avg_paragraphs": 4.0
+  },
+  "vocabulary": [
+    [
+      "lesson",
+      5
+    ],
+    [
+      "then",
+      4
+    ],
+    [
+      "every",
+      3
+    ],
+    [
+      "context",
+      3
+    ],
+    [
+      "time",
+      3
+    ],
+    [
+      "career",
+      2
+    ],
+    [
+      "simple",
+      2
+    ],
+    [
+      "question",
+      2
+    ],
+    [
+      "what",
+      2
+    ],
+    [
+      "tasks",
+      2
+    ],
+    [
+      "meaningful",
+      2
+    ],
+    [
+      "impact",
+      2
+    ],
+    [
+      "relationships",
+      2
+    ],
+    [
+      "opportunities",
+      2
+    ],
+    [
+      "chase",
+      2
+    ],
+    [
+      "your",
+      2
+    ],
+    [
+      "first",
+      2
+    ],
+    [
+      "scheduling",
+      2
+    ],
+    [
+      "difference",
+      2
+    ],
+    [
+      "clarity",
+      2
+    ],
+    [
+      "blocks",
+      2
+    ],
+    [
+      "prevents",
+      2
+    ],
+    [
+      "review",
+      2
+    ],
+    [
+      "plan",
+      2
+    ],
+    [
+      "used",
+      2
+    ],
+    [
+      "connections",
+      2
+    ],
+    [
+      "collaborate",
+      2
+    ],
+    [
+      "transformed",
+      2
+    ],
+    [
+      "project",
+      2
+    ],
+    [
+      "communication",
+      2
+    ]
+  ]
+}

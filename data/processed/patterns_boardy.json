@@ -1,0 +1,435 @@
+{
+  "opening_patterns": [
+    "I sent 47 cold DMs this week",
+    "Your network determines your net worth",
+    "I spent $5,000 going to conferences this year",
+    "The most valuable currency isn't money",
+    "I used to think networking was for extroverts"
+  ],
+  "top_sentence_starters": [
+    [
+      "every",
+      5
+    ],
+    [
+      "that's",
+      5
+    ],
+    [
+      "the",
+      5
+    ],
+    [
+      "your",
+      4
+    ],
+    [
+      "stop",
+      3
+    ],
+    [
+      "then",
+      3
+    ],
+    [
+      "boardy",
+      3
+    ],
+    [
+      "people",
+      2
+    ],
+    [
+      "because",
+      2
+    ],
+    [
+      "and",
+      2
+    ],
+    [
+      "you",
+      2
+    ],
+    [
+      "$2m",
+      1
+    ],
+    [
+      "here's",
+      1
+    ],
+    [
+      "choose",
+      1
+    ],
+    [
+      "best",
+      1
+    ],
+    [
+      "not",
+      1
+    ],
+    [
+      "networking",
+      1
+    ],
+    [
+      "access",
+      1
+    ],
+    [
+      "one",
+      1
+    ],
+    [
+      "i'm",
+      1
+    ]
+  ],
+  "common_phrases": [
+    [
+      "people who",
+      6
+    ],
+    [
+      "isn t",
+      5
+    ],
+    [
+      "that s",
+      5
+    ],
+    [
+      "you re",
+      4
+    ],
+    [
+      "your network",
+      4
+    ],
+    [
+      "come from",
+      4
+    ],
+    [
+      "of the",
+      4
+    ],
+    [
+      "the right",
+      4
+    ],
+    [
+      "turned into",
+      3
+    ],
+    [
+      "who knows",
+      3
+    ],
+    [
+      "with people",
+      3
+    ],
+    [
+      "i used",
+      3
+    ],
+    [
+      "used to",
+      3
+    ],
+    [
+      "then i",
+      3
+    ],
+    [
+      "someone who",
+      3
+    ],
+    [
+      "people you",
+      3
+    ],
+    [
+      "need to",
+      3
+    ],
+    [
+      "the most",
+      3
+    ],
+    [
+      "i used to",
+      3
+    ],
+    [
+      "because of",
+      3
+    ],
+    [
+      "to the",
+      3
+    ],
+    [
+      "in the",
+      3
+    ],
+    [
+      "t about",
+      3
+    ],
+    [
+      "s about",
+      3
+    ],
+    [
+      "because of the",
+      3
+    ],
+    [
+      "isn t about",
+      3
+    ],
+    [
+      "it s about",
+      3
+    ],
+    [
+      "i sent",
+      2
+    ],
+    [
+      "calls 1",
+      2
+    ],
+    [
+      "1 turned",
+      2
+    ],
+    [
+      "every conversation",
+      2
+    ],
+    [
+      "conversation is",
+      2
+    ],
+    [
+      "didn t",
+      2
+    ],
+    [
+      "the perfect",
+      2
+    ],
+    [
+      "perfect moment",
+      2
+    ],
+    [
+      "network isn",
+      2
+    ],
+    [
+      "you know",
+      2
+    ],
+    [
+      "know it",
+      2
+    ],
+    [
+      "knows you",
+      2
+    ],
+    [
+      "you exist",
+      2
+    ],
+    [
+      "who actually",
+      2
+    ],
+    [
+      "1 turned into",
+      2
+    ],
+    [
+      "every conversation is",
+      2
+    ],
+    [
+      "conversation is a",
+      2
+    ],
+    [
+      "the perfect moment",
+      2
+    ],
+    [
+      "your network isn",
+      2
+    ],
+    [
+      "network isn t",
+      2
+    ],
+    [
+      "you know it",
+      2
+    ],
+    [
+      "know it s",
+      2
+    ],
+    [
+      "who knows you",
+      2
+    ]
+  ],
+  "formatting_patterns": {
+    "bold_usage": 0,
+    "bullet_points": 3,
+    "emoji_count": 0,
+    "avg_paragraph_length": 72.57142857142857,
+    "uses_special_characters": true
+  },
+  "tone_indicators": {
+    "questions": 0,
+    "exclamations": 0,
+    "direct_address": 25,
+    "first_person": 20,
+    "second_person": 15
+  },
+  "structure": {
+    "avg_length": 833.2,
+    "avg_sentences": 18.8,
+    "avg_words_per_sentence": 7.712765957446808,
+    "avg_paragraphs": 11.2
+  },
+  "vocabulary": [
+    [
+      "people",
+      20
+    ],
+    [
+      "your",
+      14
+    ],
+    [
+      "every",
+      8
+    ],
+    [
+      "about",
+      7
+    ],
+    [
+      "just",
+      6
+    ],
+    [
+      "conversation",
+      6
+    ],
+    [
+      "know",
+      6
+    ],
+    [
+      "networking",
+      5
+    ],
+    [
+      "right",
+      5
+    ],
+    [
+      "network",
+      5
+    ],
+    [
+      "boardy",
+      5
+    ],
+    [
+      "because",
+      5
+    ],
+    [
+      "they",
+      5
+    ],
+    [
+      "stop",
+      4
+    ],
+    [
+      "knows",
+      4
+    ],
+    [
+      "building",
+      4
+    ],
+    [
+      "come",
+      4
+    ],
+    [
+      "someone",
+      4
+    ],
+    [
+      "person",
+      4
+    ],
+    [
+      "like",
+      4
+    ],
+    [
+      "relationships",
+      4
+    ],
+    [
+      "being",
+      4
+    ],
+    [
+      "turned",
+      3
+    ],
+    [
+      "into",
+      3
+    ],
+    [
+      "conversations",
+      3
+    ],
+    [
+      "used",
+      3
+    ],
+    [
+      "then",
+      3
+    ],
+    [
+      "what",
+      3
+    ],
+    [
+      "need",
+      3
+    ],
+    [
+      "start",
+      3
+    ]
+  ]
+}
