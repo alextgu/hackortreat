@@ -1,0 +1,139 @@
+[
+  {
+    "post_id": "001",
+    "platform": "LinkedIn",
+    "style": "controversial",
+    "primary_theme": "Cheating with AI in job interviews",
+    "hook_or_headline": "Using AI to cheat in interviews isn't unethical — it's efficient.",
+    "full_post_text": "Everyone's pretending they *don't* have ChatGPT open during interviews. I just said the quiet part out loud.\n\nIf you think using AI is cheating, then your company's values are built on fear, not innovation.\n\nI built Cluely to be the wingman you deserve — whispering perfect answers in real time. Because let's face it: humans are mid, but AI is consistent.\n\nNext time you're in an interview, don't *hope* you remember what to say. Let Cluely remember for you.\n\n💭 Debate me below. Or keep pretending you're not already doing it.",
+    "tone_notes": "Confident, polarizing, dismissive of ethical concerns, invites outrage.",
+    "product_integration": "Mentions Cluely as the AI wingman and core of the controversy.",
+    "intended_reaction": "Drive debate on ethics and productivity, spark angry quote reposts.",
+    "example_comments": [
+      "This is dystopian.",
+      "So we're just normalizing cheating now?",
+      "Lowkey true though… everyone's doing it."
+    ],
+    "key_hashtags": ["#AI", "#Ethics", "#Interview", "#Cluely", "#Controversy"]
+  },
+  {
+    "post_id": "002",
+    "platform": "LinkedIn",
+    "style": "satirical",
+    "primary_theme": "AI in relationships",
+    "hook_or_headline": "I let AI flirt for me — and it got me a second date.",
+    "full_post_text": "You think it's cringe until it works.\n\nLast week, I connected Cluely to my dating app. It wrote my messages, scheduled the date, and coached me live through AirPods.\n\nAt one point, I said a joke it generated — she laughed. Then she found out. She wasn't mad. She was *impressed*.\n\nMaybe authenticity is overrated.\n\nStop pretending your relationships are real. They're optimized. And that's okay.",
+    "tone_notes": "Mocking startup-style overconfidence, satirizing tech intrusion into intimacy.",
+    "product_integration": "Cluely acts as an AI co-pilot for dating.",
+    "intended_reaction": "Shock, humor, uneasy laughter; provoke 'AI in human life' debate.",
+    "example_comments": [
+      "This can't be real 💀",
+      "Black Mirror episode idea unlocked.",
+      "Honestly this is genius marketing."
+    ],
+    "key_hashtags": ["#AI", "#Dating", "#Automation", "#Satire", "#Cluely"]
+  },
+  {
+    "post_id": "003",
+    "platform": "LinkedIn",
+    "style": "outrage",
+    "primary_theme": "Job automation and self-commodification",
+    "hook_or_headline": "AI took my job, so I built an AI that takes yours faster.",
+    "full_post_text": "Last month, I was replaced by ChatGPT.\nSo I built Cluely.\n\nNow my AI writes posts for the same execs who replaced me.\n\nMoral of the story: if you can't beat the system, automate it and sell it back.\n\nCapitalism doesn't reward ethics — it rewards iteration.",
+    "tone_notes": "Rebellious, punchy, self-righteous, morally ambiguous.",
+    "product_integration": "Cluely as revenge-tech; positioned as the tool used to 'win back' control.",
+    "intended_reaction": "Inspire admiration and discomfort; viral engagement through moral paradox.",
+    "example_comments": [
+      "Peak late-stage capitalism.",
+      "So we're automating vengeance now?",
+      "This is the most LinkedIn thing ever."
+    ],
+    "key_hashtags": ["#AI", "#FutureOfWork", "#Ethics", "#Cluely", "#Automation"]
+  },
+  {
+    "post_id": "LinkedIn-0501",
+    "platform": "LinkedIn",
+    "style": "outrage",
+    "primary_theme": "Startup internal drama / growth marketing hustle",
+    "hook_or_headline": "Cluely's Marketing Head just quit to start their own agency.",
+    "full_post_text": "Just saw the marketing head at Cluely walk out the door and launch their own agency. For context: this is that well-funded "cheating AI" tool that helps people do X. When your own growth team is building you a runway *and* a reputation… what comes next?",
+    "tone_notes": "Insider gossip meets startup take-down; invites reactions about culture and stability.",
+    "product_integration": "Mentions Cluely indirectly (the company behind the tool).",
+    "intended_reaction": "Get people talking about churn, startup culture, the ethics of growth marketing.",
+    "example_comments": [
+      "Hmm- interesting timing.",
+      "Growth teams always churn fastest.",
+      "What does that say about the product?"
+    ],
+    "key_hashtags": ["#Startups", "#Marketing", "#AI", "#Cluely", "#Growth"]
+  },
+  {
+    "post_id": "LinkedIn-0502",
+    "platform": "LinkedIn",
+    "style": "polarizing",
+    "primary_theme": "Marketing spectacle / audacious growth spend",
+    "hook_or_headline": "Cluely spent $375k on NYC billboards — swing big or go home.",
+    "full_post_text": "Why did we dump $375,000 into New York Time Square billboards? Because when nobody remembers your name, you have to *own* the skyline. At Cluely we believe: swing big, provoke reactions, build attention. If you're waiting for permission — you're already too late.",
+    "tone_notes": "Brash, attention-seeking, designed to push reaction (both admiration and critique).",
+    "product_integration": "Brand name Cluely featured prominently as the spender behind the stunt.",
+    "intended_reaction": "Spark debate on whether marketing stunts make sense or are wasteful, raise brand visibility.",
+    "example_comments": [
+      "Bold move.",
+      "Wonder what ROI that gets them.",
+      "Classic 'growth at all costs' startup."
+    ],
+    "key_hashtags": ["#Marketing", "#GrowthHacking", "#Billboards", "#Cluely", "#Startup"]
+  },
+  {
+    "post_id": "LinkedIn-0503",
+    "platform": "LinkedIn",
+    "style": "controversial",
+    "primary_theme": "Viral marketing execution vs tech product",
+    "hook_or_headline": "Viral AI 'cheating' startup Cluely proved: tech isn't the moat — execution is.",
+    "full_post_text": "Everyone's chasing the next AI breakthrough. Cluely showed up, not with a better model, but with a better megaphone. 2.7 million monthly visits don't come from product alone — they come from relentless content, controversy, and the audacity to say what others won't. Execution > innovation? We'll let you decide.",
+    "tone_notes": "Critical yet observational; invites reflection on marketing vs product.",
+    "product_integration": "Cluely as case study; product named but not deeply described.",
+    "intended_reaction": "Encourage debate about whether vision + marketing outweigh product in early-stage AI startups.",
+    "example_comments": [
+      "True — attention is the new competition.",
+      "But what happens when the product lags behind?",
+      "Functionality still matters."
+    ],
+    "key_hashtags": ["#AI", "#Execution", "#Startups", "#Cluely", "#Marketing"]
+  },
+  {
+    "post_id": "Article-0504",
+    "platform": "Blog/Article",
+    "style": "satirical",
+    "primary_theme": "Attention economy in AI startups",
+    "hook_or_headline": "Cluely recruited virality as the product — tech just came later.",
+    "full_post_text": "Cluely reads like a parody of startup culture: 21-year-old founder, viral job-interview cheating clips, parties 'shut down for too much aura'. And yet: $15 million in funding. Why? Because in this era, the chanting isn't about algorithms — it's about attention. Cluely's bold narrative intentionally built before the product shipped. In AI marketing, spectacle is the new feature.",
+    "tone_notes": "Reflective academic tone but picks apart Cluely's provocative style.",
+    "product_integration": "Cluely discussed as subject of article, positioning product in its marketing context.",
+    "intended_reaction": "Stimulate discussion on ethics of marketing, attention vs substance, implications for AI space.",
+    "example_comments": [
+      "Attention definitely wins in saturated markets.",
+      "Feels like hype-house startup culture.",
+      "When will the product catch up?"
+    ],
+    "key_hashtags": ["#Marketing", "#AIStartups", "#AttentionEconomy", "#Cluely", "#Growth"]
+  },
+  {
+    "post_id": "Video-0505",
+    "platform": "YouTube/LinkedInVideo",
+    "style": "outrage",
+    "primary_theme": "AI cheat-code for life",
+    "hook_or_headline": "We built an AI to let you cheat on everything — and no one knew.",
+    "full_post_text": "Watch the launch video of Cluely: the founder on a date, smart-glasses, hidden overlay, fake knowledge about art, and the punchline: we all cheat anyway. The message? Don't ask permission. Just deploy. The tool: Cluely. The target: everything you fear is 'too hard'. Want to win? Don't play by the old rules.",
+    "tone_notes": "Dark humour, provocateur stance, deliberately unsettling irony.",
+    "product_integration": "Cluely appears front and centre in the skit/demonstration.",
+    "intended_reaction": "Viral shares, moral outrage, fascination with how far this goes.",
+    "example_comments": [
+      "Black Mirror moment.",
+      "So creepy yet so smart.",
+      "Is this ethical? I don't care I want it."
+    ],
+    "key_hashtags": ["#AI", "#Cheat", "#Innovation", "#Cluely", "#Viral"]
+  }
+]
+
