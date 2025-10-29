@@ -22,9 +22,10 @@ def load_posts(filename):
 
 def extract_summary(posts):
     """
-    Summarize key attributes from posts for AI prompts.
+    Summarize key attributes from posts in a Gemini-friendly format.
     
     Extracts important fields and creates a short text snippet for each post.
+    Handles multiple possible key names to avoid nulls.
     
     Args:
         posts (list[dict]): List of post dictionaries.
@@ -34,29 +35,34 @@ def extract_summary(posts):
     """
     summaries = []
     for post in posts:
-        text = post.get('generated_post_text', '')  # Post content
-        hashtags = post.get('key_hashtags', [])     # List of hashtags
+        # Flexible key lookup to prevent nulls
+        text = post.get('generated_post_text') or post.get('full_post_text') or ''
+        hashtags = post.get('key_hashtags') or post.get('hashtags') or []
+        style = post.get('style_preset') or post.get('style') or ''
+        theme = post.get('original_context') or post.get('primary_theme') or ''
+        engagement = post.get('engagement_metrics') or post.get('engagement') or {}
+
+        # Build Gemini-friendly summary
         summary = {
-            'post_id': post.get('post_id'),
-            'style_preset': post.get('style_preset'),
-            'date_posted': post.get('date_posted'),
-            'original_context': post.get('original_context'),
+            'id': post.get('post_id') or f'post-{posts.index(post)+1}',
+            'style': style,
+            'theme': theme,
             # Take first 20 words as snippet for AI context
-            'text_snippet': ' '.join(text.split()[:20]) + ('...' if len(text.split()) > 20 else ''),
+            'snippet': ' '.join(text.split()[:20]) + ('...' if len(text.split()) > 20 else ''),
             'hashtags': hashtags,
             # Count sentences by splitting on punctuation
-            'num_sentences': len([s for s in re.split(r'[.!?]+', text) if s.strip()]),
+            'sentences': len([s for s in re.split(r'[.!?]+', text) if s.strip()]),
             # Count paragraphs by double line breaks
-            'num_paragraphs': text.count('\n\n') + 1,
+            'paragraphs': text.count('\n\n') + 1,
             # Include engagement metrics if present
-            'engagement': post.get('engagement_metrics', {})
+            'engagement': engagement
         }
         summaries.append(summary)
     return summaries
 
 def overall_patterns(posts):
     """
-    Summarize general patterns across all posts.
+    Summarize general patterns across all posts in a Gemini-friendly format.
     
     Calculates average length, sentences, and paragraphs across dataset.
 
@@ -66,21 +72,23 @@ def overall_patterns(posts):
     Returns:
         dict: Average length, sentences, and paragraphs.
     """
-    total_length = sum(len(post.get('generated_post_text', '')) for post in posts)
-    total_sentences = sum(len([s for s in re.split(r'[.!?]+', post.get('generated_post_text', '')) if s.strip()]) for post in posts)
-    total_paragraphs = sum(post.get('generated_post_text', '').count('\n\n') + 1 for post in posts)
+    total_length = sum(len(post.get('generated_post_text') or post.get('full_post_text') or '') for post in posts)
+    total_sentences = sum(len([s for s in re.split(r'[.!?]+', post.get('generated_post_text') or post.get('full_post_text') or '') if s.strip()]) for post in posts)
+    total_paragraphs = sum((post.get('generated_post_text') or post.get('full_post_text') or '').count('\n\n') + 1 for post in posts)
     n = len(posts)
     return {
-        'avg_length': total_length / n if n else 0,
-        'avg_sentences': total_sentences / n if n else 0,
-        'avg_paragraphs': total_paragraphs / n if n else 0
+        # Average post length in characters
+        'length': total_length / n if n else 0,
+        # Average number of sentences per post
+        'sentences': total_sentences / n if n else 0,
+        # Average number of paragraphs per post
+        'paragraphs': total_paragraphs / n if n else 0
     }
 
 if __name__ == "__main__":
     # Prompt user to input a JSON file path (relative to this script)
     filename = input("Enter the path to your JSON file (relative to this script): ").strip()
-    
-    #../data/raw/filename.json
+    # Example: ../data/raw/performative.json
 
     # Load the posts from the given file
     posts = load_posts(filename)
@@ -89,12 +97,12 @@ if __name__ == "__main__":
     summaries = extract_summary(posts)
     
     # Calculate overall patterns across all posts
-    patterns = overall_patterns(posts)
+    averages = overall_patterns(posts)
     
     # Compact summary to feed into Gemini or another AI
     ai_context = {
-        'posts_summary': summaries,
-        'overall_patterns': patterns
+        'posts': summaries,
+        'averages': averages
     }
 
     # Print the structured summary in JSON format
