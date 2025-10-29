@@ -1,0 +1,111 @@
+{
+  "source_file": "data/raw/boardy.json",
+  "total_posts": 5,
+  "writing_style": {
+    "opening_patterns": [
+      "if you’re tired of feeling like everyone’s life is moving faster than yours - read this:",
+      "The Boardy Fellowship is doing too well...and 𝘄𝗲 𝗻𝗲𝗲𝗱 𝗺𝗼𝗿𝗲 𝗽𝗲𝗼𝗽𝗹𝗲. Want in?",
+      "i’ve almost given up on my dream more times than I can count",
+      "💭 A year ago, I felt stuck.",
+      "My best friends are balding."
+    ],
+    "top_sentence_starters": [
+      "if you’re tired of",
+      "we live in a",
+      "and you scroll through",
+      "” “what am i",
+      "” “how are they",
+      "” i used to",
+      "every time someone around",
+      "but that mindset is",
+      "once i stopped comparing",
+      "you realize success isn’t",
+      "the more you’re around",
+      "you start believing it’s",
+      "so here’s the truth:",
+      "if you want help",
+      "because when you spend"
+    ],
+    "common_phrases": [
+      "you want to",
+      "it felt like",
+      "if you want",
+      "want to join",
+      "not looking for",
+      "a dream that",
+      "that tried to",
+      "no matter how",
+      "if you’re tired",
+      "you’re tired of",
+      "tired of feeling",
+      "of feeling like",
+      "feeling like everyone’s",
+      "like everyone’s life",
+      "everyone’s life is",
+      "life is moving",
+      "is moving faster",
+      "moving faster than",
+      "faster than yours",
+      "than yours -"
+    ],
+    "formatting_patterns": [
+      "uses_paragraph_breaks",
+      "uses_italic_text",
+      "uses_bullet_points",
+      "uses_bold_text"
+    ],
+    "tone_indicators": [
+      "questioning_tone",
+      "direct_address",
+      "personal_narrative",
+      "excited_tone"
+    ],
+    "call_to_actions": []
+  },
+  "structure": {
+    "avg_length": 954.4,
+    "avg_sentences": 14.6,
+    "avg_paragraphs": 9.6,
+    "avg_line_breaks": 23.8,
+    "length_range": {
+      "min": 875,
+      "max": 1091
+    }
+  },
+  "vocabulary": [
+    "dream",
+    "people",
+    "more",
+    "want",
+    "boardy",
+    "just",
+    "start",
+    "about",
+    "feeling",
+    "life",
+    "doing",
+    "think",
+    "same",
+    "every",
+    "around",
+    "them",
+    "looking",
+    "week",
+    "like",
+    "than"
+  ],
+  "emoji_usage": {
+    "total": 2,
+    "unique": 2,
+    "most_common": [
+      {
+        "emoji": "💭",
+        "count": 1
+      },
+      {
+        "emoji": "🔥",
+        "count": 1
+      }
+    ]
+  }
+}
