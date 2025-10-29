@@ -151,3 +151,25 @@ export async function getVideos(): Promise<any[]> {
   return response.json();
 }
 
+/**
+ * Extract patterns from a specific dataset
+ */
+export async function extractPatterns(datasetName: string): Promise<any> {
+  const response = await fetch(`${CONTENT_API_URL}/api/extract-patterns`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      dataset_name: datasetName,
+    }),
+  });
+
+  if (!response.ok) {
+    const error = await response.json().catch(() => ({ error: 'Failed to extract patterns' }));
+    throw new Error(error.error || 'Failed to extract patterns');
+  }
+
+  return response.json();
+}
+

@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
-import { Sparkles, Loader2 } from "lucide-react";
+import { Sparkles, Loader2, Database } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { generatePost } from "@/services/api";
+import { generatePost, extractPatterns } from "@/services/api";
 import PostTypeSelector from "@/components/PostTypeSelector";
 import GeneratedPost from "@/components/GeneratedPost";
 import VideoUpload from "@/components/VideoUpload";
@@ -17,7 +17,70 @@ const Index = () => {
   const [context, setContext] = useState("");
   const [generatedPost, setGeneratedPost] = useState("");
   const [isGenerating, setIsGenerating] = useState(false);
+  const [isExtractingPatterns, setIsExtractingPatterns] = useState(false);
+  const [patternsLoaded, setPatternsLoaded] = useState<PostType | null>(null);
   const { toast } = useToast();
+
+  // Extract patterns when post type changes
+  useEffect(() => {
+    const loadPatterns = async () => {
+      if (patternsLoaded === postType) return; // Already loaded for this type
+      
+      console.log(`🔍 [PATTERN EXTRACTION] Starting extraction for: ${postType}`);
+      setIsExtractingPatterns(true);
+      try {
+        const result = await extractPatterns(postType);
+        console.log(`✅ [PATTERN EXTRACTION] Success for ${postType}:`, result);
+        console.log(`📊 [PATTERNS DATA]:`, JSON.stringify(result.patterns, null, 2));
+        
+        setPatternsLoaded(postType);
+        toast({
+          title: "Patterns loaded!",
+          description: `${postType.charAt(0).toUpperCase() + postType.slice(1)} writing style patterns extracted successfully`,
+          duration: 3000,
+        });
+      } catch (error: any) {
+        console.error(`❌ [PATTERN EXTRACTION] Error for ${postType}:`, error);
+        toast({
+          title: "Pattern extraction failed",
+          description: error.message,
+          variant: "destructive",
+        });
+      } finally {
+        setIsExtractingPatterns(false);
+      }
+    };
+
+    loadPatterns();
+  }, [postType]);
+
+  const handleManualExtraction = async () => {
+    console.log(`🔄 [MANUAL TRIGGER] Forcing pattern extraction for: ${postType}`);
+    setIsExtractingPatterns(true);
+    setPatternsLoaded(null); // Force re-extraction
+    
+    try {
+      const result = await extractPatterns(postType);
+      console.log(`✅ [MANUAL EXTRACTION] Success:`, result);
+      console.log(`📊 [PATTERNS DATA]:`, JSON.stringify(result.patterns, null, 2));
+      
+      setPatternsLoaded(postType);
+      toast({
+        title: "Manual extraction complete!",
+        description: `Check console for full pattern data`,
+        duration: 5000,
+      });
+    } catch (error: any) {
+      console.error(`❌ [MANUAL EXTRACTION] Error:`, error);
+      toast({
+        title: "Extraction failed",
+        description: error.message,
+        variant: "destructive",
+      });
+    } finally {
+      setIsExtractingPatterns(false);
+    }
+  };
 
   const handleGenerate = async () => {
     if (!context.trim()) {
@@ -29,6 +92,7 @@ const Index = () => {
       return;
     }
 
+    console.log(`🎨 [GENERATION] Starting post generation with style: ${postType}`);
     setIsGenerating(true);
     setGeneratedPost("");
 
@@ -38,13 +102,15 @@ const Index = () => {
         context: context.trim(),
       });
 
+      console.log(`✅ [GENERATION] Success:`, result);
+
       if (result?.post) {
         setGeneratedPost(result.post);
       } else {
         throw new Error("No post generated");
       }
     } catch (error: any) {
-      console.error("Generation error:", error);
+      console.error("❌ [GENERATION] Error:", error);
       toast({
         title: "Generation failed",
         description: error.message || "Failed to generate post. Make sure the backend server is running.",
@@ -86,7 +152,33 @@ const Index = () => {
           <Card className="p-8 shadow-[var(--shadow-elegant)] border-2 hover:shadow-[var(--shadow-glow)] transition-shadow duration-300">
             <div className="space-y-6">
               <div>
-                <h2 className="text-2xl font-semibold mb-6">Create Your Post</h2>
+                <div className="flex items-center justify-between mb-6">
+                  <h2 className="text-2xl font-semibold">Create Your Post</h2>
+                  <div className="flex items-center gap-3">
+                    {isExtractingPatterns && (
+                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                        <Database className="w-4 h-4 animate-pulse" />
+                        <span>Loading patterns...</span>
+                      </div>
+                    )}
+                    {patternsLoaded === postType && !isExtractingPatterns && (
+                      <div className="flex items-center gap-2 text-sm text-green-600">
+                        <Database className="w-4 h-4" />
+                        <span>Patterns loaded</span>
+                      </div>
+                    )}
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={handleManualExtraction}
+                      disabled={isExtractingPatterns}
+                      className="text-xs"
+                    >
+                      <Database className="w-3 h-3 mr-1" />
+                      Test Extract
+                    </Button>
+                  </div>
+                </div>
                 <PostTypeSelector value={postType} onChange={setPostType} />
               </div>
 

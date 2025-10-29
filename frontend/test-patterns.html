@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pattern Extraction Test</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        button {
+            padding: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+        
+        button:active {
+            transform: translateY(0);
+        }
+        
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .btn-performative {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        
+        .btn-serious {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        
+        .btn-cluely {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+        
+        .btn-boardy {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+        
+        .output {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .log-entry {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+        
+        .log-info {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+        
+        .log-success {
+            background: #e8f5e9;
+            color: #388e3c;
+        }
+        
+        .log-error {
+            background: #ffebee;
+            color: #c62828;
+        }
+        
+        .log-data {
+            background: #f3e5f5;
+            color: #7b1fa2;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+        
+        .status {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 18px;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+        
+        .loading {
+            display: inline-block;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .clear-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin-bottom: 20px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 Pattern Extraction Test</h1>
+        
+        <div id="status" class="status">
+            Click a button to extract patterns!
+        </div>
+        
+        <div class="buttons">
+            <button class="btn-performative" onclick="extractPatterns('performative')">
+                📊 Performative
+            </button>
+            <button class="btn-serious" onclick="extractPatterns('serious')">
+                💼 Serious
+            </button>
+            <button class="btn-cluely" onclick="extractPatterns('cluely')">
+                💡 Cluely
+            </button>
+            <button class="btn-boardy" onclick="extractPatterns('boardy')">
+                🎪 Boardy
+            </button>
+        </div>
+        
+        <button class="clear-btn" onclick="clearLogs()">
+            🗑️ Clear Logs
+        </button>
+        
+        <div class="output" id="output">
+            <div class="log-info">
+                <strong>Ready to test pattern extraction!</strong><br>
+                Backend: http://localhost:5001<br>
+                Click any style button above to start.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = 'http://localhost:5001';
+        
+        function log(message, type = 'info') {
+            const output = document.getElementById('output');
+            const entry = document.createElement('div');
+            entry.className = `log-entry log-${type}`;
+            entry.innerHTML = message;
+            output.appendChild(entry);
+            output.scrollTop = output.scrollHeight;
+        }
+        
+        function updateStatus(message, loading = false) {
+            const status = document.getElementById('status');
+            status.innerHTML = loading ? `<span class="loading">${message}</span>` : message;
+        }
+        
+        function clearLogs() {
+            const output = document.getElementById('output');
+            output.innerHTML = '';
+            updateStatus('Logs cleared. Ready to test!');
+        }
+        
+        async function extractPatterns(datasetName) {
+            const timestamp = new Date().toLocaleTimeString();
+            
+            log(`<strong>[${timestamp}] 🔍 Starting extraction for: ${datasetName}</strong>`, 'info');
+            updateStatus(`⏳ Extracting patterns for ${datasetName}...`, true);
+            
+            // Disable all buttons
+            document.querySelectorAll('button').forEach(btn => btn.disabled = true);
+            
+            try {
+                const response = await fetch(`${API_URL}/api/extract-patterns`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ dataset_name: datasetName })
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                const data = await response.json();
+                
+                log(`<strong>[${timestamp}] ✅ SUCCESS for ${datasetName}!</strong>`, 'success');
+                log(`Message: ${data.message}`, 'success');
+                
+                // Log pattern summary
+                const patterns = data.patterns;
+                log(`
+<strong>📊 Pattern Summary:</strong>
+• Opening patterns: ${patterns.opening_patterns?.length || 0}
+• Sentence starters: ${patterns.top_sentence_starters?.length || 0}
+• Common phrases: ${patterns.common_phrases?.length || 0}
+• Vocabulary words: ${patterns.vocabulary?.length || 0}
+• Average length: ${Math.round(patterns.structure?.avg_length || 0)} chars
+• Average sentences: ${Math.round(patterns.structure?.avg_sentences || 0)}
+• Questions: ${patterns.tone_indicators?.questions || 0}
+• Exclamations: ${patterns.tone_indicators?.exclamations || 0}
+                `, 'success');
+                
+                // Log sample opening patterns
+                if (patterns.opening_patterns && patterns.opening_patterns.length > 0) {
+                    log(`
+<strong>📝 Sample Opening Patterns:</strong>
+${patterns.opening_patterns.slice(0, 3).map((p, i) => `${i+1}. "${p.substring(0, 100)}${p.length > 100 ? '...' : ''}"`).join('\n')}
+                    `, 'data');
+                }
+                
+                // Log full data (collapsed)
+                log(`<strong>Full JSON Response:</strong>\n${JSON.stringify(data, null, 2)}`, 'data');
+                
+                updateStatus(`✅ ${datasetName} patterns extracted successfully!`);
+                
+            } catch (error) {
+                log(`<strong>[${timestamp}] ❌ ERROR:</strong> ${error.message}`, 'error');
+                log(`
+<strong>Troubleshooting:</strong>
+1. Make sure backend is running: <code>python backend/app.py</code>
+2. Check backend is on port 5001: <code>curl http://localhost:5001/health</code>
+3. Check dataset file exists: <code>data/raw/${datasetName}.json</code>
+                `, 'error');
+                updateStatus(`❌ Failed to extract ${datasetName} patterns`);
+            } finally {
+                // Re-enable buttons
+                document.querySelectorAll('button').forEach(btn => btn.disabled = false);
+            }
+        }
+        
+        // Check backend health on load
+        window.addEventListener('load', async () => {
+            try {
+                const response = await fetch(`${API_URL}/health`);
+                if (response.ok) {
+                    log('✅ Backend is running and healthy!', 'success');
+                } else {
+                    log('⚠️ Backend responded but may have issues', 'error');
+                }
+            } catch (error) {
+                log('❌ Cannot connect to backend at http://localhost:5001', 'error');
+                log('Run: <code>python backend/app.py</code>', 'error');
+            }
+        });
+    </script>
+</body>
+</html>
+
