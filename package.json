@@ -2,13 +2,16 @@
   "name": "hackortreat",
   "version": "1.0.0",
   "description": "Video recording with AI analysis + LinkedIn content generator",
-  "main": "backend/video/server.js",
+  "main": "backend/video/server.cjs",
   "scripts": {
-    "start": "node backend/video/server.js",
-    "start:video": "node backend/video/server.js",
-    "start:content": "cd backend/content && python server.py",
-    "test-ai": "node test-analyzer.js",
-    "dev": "npm run start:video"
+    "dev": "cd frontend && npm run dev",
+    "dev:backend": "python backend/app.py",
+    "dev:frontend": "cd frontend && npm run dev",
+    "build": "cd frontend && npm run build",
+    "start": "node backend/video/server.cjs",
+    "start:video": "node backend/video/server.cjs",
+    "start:api": "python backend/app.py",
+    "test-ai": "node test-analyzer.js"
   },
   "keywords": [
     "video",
