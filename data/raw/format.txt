@@ -1,0 +1,19 @@
+[
+  {
+    "post_id": "string",               // Unique identifier for the post
+    "style_preset": "string",          // Style or tone of the post (e.g., inspirational, controversial)
+    "date_posted": "YYYY-MM-DD",       // Date the post was published
+    "original_context": "string",      // Original context or idea behind the post
+    "generated_post_text": "string",   // Full text content of the post
+    "visual_context": "string",        // Description of any visual, image, or placeholder
+    "engagement_metrics": {            // Engagement statistics
+      "likes": 0,
+      "comments": 0,
+      "shares": 0
+    },
+    "key_hashtags": [                  // List of relevant hashtags
+      "#example1",
+      "#example2"
+    ]
+  }
+]
