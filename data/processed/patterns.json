@@ -1,13 +1,15 @@
 {
   "source_file": "data/raw/boardy.json",
-  "total_posts": 5,
+  "total_posts": 7,
   "writing_style": {
     "opening_patterns": [
       "if you’re tired of feeling like everyone’s life is moving faster than yours - read this:",
       "The Boardy Fellowship is doing too well...and 𝘄𝗲 𝗻𝗲𝗲𝗱 𝗺𝗼𝗿𝗲 𝗽𝗲𝗼𝗽𝗹𝗲. Want in?",
       "i’ve almost given up on my dream more times than I can count",
       "💭 A year ago, I felt stuck.",
-      "My best friends are balding."
+      "My best friends are balding.",
+      "my friend wanted a girlfriend.",
+      "i got ghosted for sending a long paragraph ..."
     ],
     "top_sentence_starters": [
       "if you’re tired of",
@@ -28,25 +30,25 @@
     ],
     "common_phrases": [
       "you want to",
-      "it felt like",
       "if you want",
+      "for the perfect",
+      "it felt like",
       "want to join",
       "not looking for",
       "a dream that",
       "that tried to",
       "no matter how",
+      "waiting for the",
+      "𝘏𝘰𝘸 𝘵𝘰 𝘉𝘶𝘪𝘭𝘥",
+      "the perfect moment,",
+      "i got ghosted",
+      "because i said",
       "if you’re tired",
       "you’re tired of",
       "tired of feeling",
       "of feeling like",
       "feeling like everyone’s",
-      "like everyone’s life",
-      "everyone’s life is",
-      "life is moving",
-      "is moving faster",
-      "moving faster than",
-      "faster than yours",
-      "than yours -"
+      "like everyone’s life"
     ],
     "formatting_patterns": [
       "uses_paragraph_breaks",
@@ -63,36 +65,36 @@
     "call_to_actions": []
   },
   "structure": {
-    "avg_length": 954.4,
-    "avg_sentences": 14.6,
-    "avg_paragraphs": 9.6,
-    "avg_line_breaks": 23.8,
+    "avg_length": 975.7142857142857,
+    "avg_sentences": 15.428571428571429,
+    "avg_paragraphs": 10.0,
+    "avg_line_breaks": 25.428571428571427,
     "length_range": {
       "min": 875,
       "max": 1091
     }
   },
   "vocabulary": [
-    "dream",
     "people",
-    "more",
-    "want",
     "boardy",
     "just",
-    "start",
-    "about",
-    "feeling",
+    "dream",
+    "because",
+    "they",
+    "more",
+    "want",
+    "same",
+    "most",
     "life",
     "doing",
     "think",
-    "same",
-    "every",
+    "time",
     "around",
+    "start",
     "them",
-    "looking",
-    "week",
-    "like",
-    "than"
+    "about",
+    "feeling",
+    "like"
   ],
   "emoji_usage": {
     "total": 2,
