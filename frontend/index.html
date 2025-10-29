@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPhone Camera Recorder (Native)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 15px;
+            text-align: center;
+            font-size: 28px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .camera-icon {
+            text-align: center;
+            font-size: 80px;
+            margin-bottom: 20px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .hidden-input {
+            display: none;
+        }
+
+        .record-btn {
+            width: 100%;
+            padding: 20px 30px;
+            font-size: 18px;
+            font-weight: 600;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            margin-bottom: 15px;
+        }
+
+        .record-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+        }
+
+        .record-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .record-btn.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .preview-container {
+            display: none;
+            margin: 20px 0;
+        }
+
+        .preview-container.show {
+            display: block;
+        }
+
+        video {
+            width: 100%;
+            border-radius: 12px;
+            background: #000;
+            margin-bottom: 15px;
+        }
+
+        .upload-btn {
+            width: 100%;
+            padding: 18px 30px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: #4CAF50;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .upload-btn:hover:not(:disabled) {
+            background: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+        }
+
+        .upload-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .status {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 500;
+            display: none;
+        }
+
+        .status.show {
+            display: block;
+        }
+
+        .status.info {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+
+        .status.success {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .status.error {
+            background: #ffebee;
+            color: #c62828;
+        }
+
+        .instructions {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+
+        .instructions h3 {
+            color: #333;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+
+        .instructions ol {
+            margin-left: 20px;
+            color: #666;
+            line-height: 1.8;
+            font-size: 14px;
+        }
+
+        .instructions ol li {
+            margin-bottom: 8px;
+        }
+
+        .file-info {
+            background: #f9f9f9;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: #666;
+            display: none;
+        }
+
+        .file-info.show {
+            display: block;
+        }
+
+        .file-info strong {
+            color: #333;
+        }
+
+        .progress {
+            width: 100%;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 15px;
+            display: none;
+        }
+
+        .progress.show {
+            display: block;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .analysis-container {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        .analysis-container.show {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .analysis-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .analysis-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .analysis-loading {
+            font-size: 14px;
+            color: #666;
+            font-style: italic;
+        }
+
+        .analysis-section {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+        }
+
+        .analysis-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .analysis-section-title {
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 8px;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .analysis-description {
+            color: #555;
+            line-height: 1.6;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .analysis-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .analysis-tag {
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .analysis-summary {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 12px;
+        }
+
+        .analysis-summary-text {
+            color: #856404;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="camera-icon">📹</div>
+        <h1>iPhone Camera Recorder</h1>
+        <p class="subtitle">Uses your native iOS Camera app - No HTTPS needed!</p>
+        
+        <div class="instructions">
+            <h3>📱 How it works:</h3>
+            <ol>
+                <li>Tap <strong>"Record Video"</strong> below</li>
+                <li>iOS Camera app opens automatically</li>
+                <li>Record your video in the Camera app</li>
+                <li>Tap <strong>"Use Video"</strong> when done</li>
+                <li>Video uploads automatically to your server</li>
+            </ol>
+        </div>
+
+        <!-- Hidden file input that will trigger iOS Camera -->
+        <input type="file" 
+               id="videoInput" 
+               class="hidden-input" 
+               accept="video/*" 
+               capture="environment">
+
+        <button id="recordBtn" class="record-btn">
+            📹 Record Video with iPhone Camera
+        </button>
+
+        <div class="file-info" id="fileInfo"></div>
+
+        <div class="preview-container" id="previewContainer">
+            <video id="videoPreview" controls></video>
+            <button id="uploadBtn" class="upload-btn">
+                ⬆️ Upload Video to Server
+            </button>
+        </div>
+
+        <div class="progress" id="progress">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <div class="analysis-container" id="analysisContainer">
+            <div class="analysis-header">
+                <div class="analysis-title">
+                    🤖 AI Analysis
+                </div>
+                <div class="analysis-loading" id="analysisLoading">Analyzing...</div>
+            </div>
+            
+            <div class="analysis-section" id="outfitSection">
+                <div class="analysis-section-title">👔 Outfit</div>
+                <div class="analysis-description" id="outfitDescription">-</div>
+                <div class="analysis-tags" id="outfitTags"></div>
+            </div>
+
+            <div class="analysis-section" id="activitySection">
+                <div class="analysis-section-title">🎬 Activity</div>
+                <div class="analysis-description" id="activityDescription">-</div>
+                <div class="analysis-tags" id="activityTags"></div>
+            </div>
+
+            <div class="analysis-section" id="backgroundSection">
+                <div class="analysis-section-title">🏞️ Background</div>
+                <div class="analysis-description" id="backgroundDescription">-</div>
+                <div class="analysis-tags" id="backgroundTags"></div>
+            </div>
+
+            <div class="analysis-summary" id="analysisSummary">
+                <div class="analysis-summary-text" id="summaryText">-</div>
+            </div>
+        </div>
+
+        <div class="status" id="status"></div>
+    </div>
+
+    <script>
+        const videoInput = document.getElementById('videoInput');
+        const recordBtn = document.getElementById('recordBtn');
+        const previewContainer = document.getElementById('previewContainer');
+        const videoPreview = document.getElementById('videoPreview');
+        const uploadBtn = document.getElementById('uploadBtn');
+        const status = document.getElementById('status');
+        const fileInfo = document.getElementById('fileInfo');
+        const progress = document.getElementById('progress');
+        const progressBar = document.getElementById('progressBar');
+
+        let selectedFile = null;
+
+        function showStatus(message, type) {
+            status.textContent = message;
+            status.className = `status show ${type}`;
+        }
+
+        function hideStatus() {
+            status.className = 'status';
+        }
+
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return Math.round((bytes / Math.pow(k, i)) * 100) / 100 + ' ' + sizes[i];
+        }
+
+        function formatDuration(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        // When user clicks "Record Video" button
+        recordBtn.addEventListener('click', () => {
+            // This triggers the iOS Camera app to open!
+            videoInput.click();
+        });
+
+        // When user finishes recording and selects "Use Video"
+        videoInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            
+            if (!file) {
+                showStatus('No video selected', 'error');
+                return;
+            }
+
+            selectedFile = file;
+
+            // Show file information
+            fileInfo.innerHTML = `
+                <strong>📁 File:</strong> ${file.name}<br>
+                <strong>📏 Size:</strong> ${formatFileSize(file.size)}<br>
+                <strong>🎬 Type:</strong> ${file.type}
+            `;
+            fileInfo.classList.add('show');
+
+            // Create preview
+            const url = URL.createObjectURL(file);
+            videoPreview.src = url;
+            previewContainer.classList.add('show');
+
+            // Get video duration when metadata loads
+            videoPreview.addEventListener('loadedmetadata', () => {
+                const duration = videoPreview.duration;
+                fileInfo.innerHTML += `<br><strong>⏱️ Duration:</strong> ${formatDuration(duration)}`;
+            });
+
+            showStatus('✅ Video ready! You can preview it above or upload directly.', 'success');
+            
+            // Auto-upload after a short delay
+            setTimeout(() => {
+                if (confirm('Upload this video to the server?')) {
+                    uploadVideo();
+                }
+            }, 1000);
+        });
+
+        // Manual upload button
+        uploadBtn.addEventListener('click', uploadVideo);
+
+        async function uploadVideo() {
+            if (!selectedFile) {
+                showStatus('No video to upload!', 'error');
+                return;
+            }
+
+            uploadBtn.disabled = true;
+            recordBtn.classList.add('disabled');
+            showStatus('📤 Uploading video...', 'info');
+            progress.classList.add('show');
+
+            try {
+                const formData = new FormData();
+                formData.append('video', selectedFile);
+
+                const xhr = new XMLHttpRequest();
+
+                // Progress tracking
+                xhr.upload.addEventListener('progress', (e) => {
+                    if (e.lengthComputable) {
+                        const percentComplete = (e.loaded / e.total) * 100;
+                        progressBar.style.width = percentComplete + '%';
+                        showStatus(`📤 Uploading... ${Math.round(percentComplete)}%`, 'info');
+                    }
+                });
+
+                xhr.addEventListener('load', () => {
+                    if (xhr.status === 200) {
+                        const result = JSON.parse(xhr.responseText);
+                        progressBar.style.width = '100%';
+                        showStatus(`✅ Video uploaded successfully! File: ${result.filename}`, 'success');
+                        
+                        // Check if AI analysis is enabled
+                        if (result.analysis_pending) {
+                            showStatus('✅ Upload complete! AI is analyzing your video...', 'info');
+                            fetchAnalysis(result.filename);
+                        } else {
+                            // Reset after success if no analysis
+                            setTimeout(() => {
+                                resetForm();
+                            }, 3000);
+                        }
+                    } else {
+                        throw new Error('Upload failed');
+                    }
+                });
+
+                xhr.addEventListener('error', () => {
+                    throw new Error('Network error');
+                });
+
+                xhr.open('POST', '/upload');
+                xhr.send(formData);
+
+            } catch (error) {
+                console.error('Upload error:', error);
+                showStatus('❌ Upload failed. Make sure the server is running.', 'error');
+                uploadBtn.disabled = false;
+                recordBtn.classList.remove('disabled');
+                progress.classList.remove('show');
+            }
+        }
+
+        function resetForm() {
+            selectedFile = null;
+            videoInput.value = '';
+            videoPreview.src = '';
+            previewContainer.classList.remove('show');
+            fileInfo.classList.remove('show');
+            progress.classList.remove('show');
+            progressBar.style.width = '0%';
+            uploadBtn.disabled = false;
+            recordBtn.classList.remove('disabled');
+            document.getElementById('analysisContainer').classList.remove('show');
+            hideStatus();
+        }
+
+        // Fetch and display AI analysis
+        async function fetchAnalysis(filename, retries = 0) {
+            const maxRetries = 20; // Wait up to ~40 seconds
+            const retryDelay = 2000; // 2 seconds between checks
+
+            try {
+                const response = await fetch(`/analysis/${filename}`);
+                
+                if (response.ok) {
+                    const analysis = await response.json();
+                    displayAnalysis(analysis);
+                    showStatus('🤖 AI analysis complete!', 'success');
+                } else if (response.status === 404 && retries < maxRetries) {
+                    // Analysis not ready yet, retry
+                    setTimeout(() => {
+                        fetchAnalysis(filename, retries + 1);
+                    }, retryDelay);
+                } else {
+                    console.warn('Analysis not available');
+                    showStatus('✅ Upload complete! (AI analysis unavailable)', 'success');
+                }
+            } catch (error) {
+                console.error('Error fetching analysis:', error);
+            }
+        }
+
+        // Display analysis results in the UI
+        function displayAnalysis(analysis) {
+            const container = document.getElementById('analysisContainer');
+            const loading = document.getElementById('analysisLoading');
+            
+            // Hide loading indicator
+            loading.style.display = 'none';
+            
+            // Display outfit information
+            if (analysis.outfit) {
+                document.getElementById('outfitDescription').textContent = 
+                    analysis.outfit.description || 'No outfit information available';
+                
+                const outfitTags = document.getElementById('outfitTags');
+                outfitTags.innerHTML = '';
+                
+                // Add color tags
+                if (analysis.outfit.colors && analysis.outfit.colors.length > 0) {
+                    analysis.outfit.colors.forEach(color => {
+                        const tag = document.createElement('span');
+                        tag.className = 'analysis-tag';
+                        tag.textContent = color;
+                        outfitTags.appendChild(tag);
+                    });
+                }
+                
+                // Add item tags
+                if (analysis.outfit.items && analysis.outfit.items.length > 0) {
+                    analysis.outfit.items.forEach(item => {
+                        const tag = document.createElement('span');
+                        tag.className = 'analysis-tag';
+                        tag.textContent = item;
+                        outfitTags.appendChild(tag);
+                    });
+                }
+            }
+            
+            // Display activity information
+            if (analysis.activity) {
+                document.getElementById('activityDescription').textContent = 
+                    analysis.activity.description || 'No activity information available';
+                
+                const activityTags = document.getElementById('activityTags');
+                activityTags.innerHTML = '';
+                
+                // Add action tags
+                if (analysis.activity.actions && analysis.activity.actions.length > 0) {
+                    analysis.activity.actions.forEach(action => {
+                        const tag = document.createElement('span');
+                        tag.className = 'analysis-tag';
+                        tag.textContent = action;
+                        activityTags.appendChild(tag);
+                    });
+                }
+                
+                // Add intensity tag
+                if (analysis.activity.intensity) {
+                    const tag = document.createElement('span');
+                    tag.className = 'analysis-tag';
+                    tag.textContent = `Intensity: ${analysis.activity.intensity}`;
+                    activityTags.appendChild(tag);
+                }
+            }
+            
+            // Display background information
+            if (analysis.background) {
+                document.getElementById('backgroundDescription').textContent = 
+                    analysis.background.description || 'No background information available';
+                
+                const backgroundTags = document.getElementById('backgroundTags');
+                backgroundTags.innerHTML = '';
+                
+                // Add location type tag
+                if (analysis.background.location_type) {
+                    const tag = document.createElement('span');
+                    tag.className = 'analysis-tag';
+                    tag.textContent = analysis.background.location_type;
+                    backgroundTags.appendChild(tag);
+                }
+                
+                // Add lighting tag
+                if (analysis.background.lighting) {
+                    const tag = document.createElement('span');
+                    tag.className = 'analysis-tag';
+                    tag.textContent = `Lighting: ${analysis.background.lighting}`;
+                    backgroundTags.appendChild(tag);
+                }
+            }
+            
+            // Display summary
+            if (analysis.summary) {
+                document.getElementById('summaryText').textContent = analysis.summary;
+            } else if (analysis.raw_response) {
+                document.getElementById('summaryText').textContent = analysis.raw_response;
+            }
+            
+            // Show the analysis container
+            container.classList.add('show');
+        }
+    </script>
+</body>
+</html>

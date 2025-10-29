@@ -1,0 +1,39 @@
+{
+  "outfit": {
+    "description": "The person is wearing a black long-sleeved quarter-zip hoodie with a white zipper detail. Below that, they have on loose-fitting light grey or beige cargo pants with visible pockets on the sides. A light blue strap or lanyard is draped over their right shoulder and around their neck. They also have a ring on their right hand, specifically visible on their right ring finger.",
+    "items": [
+      "black quarter-zip hoodie",
+      "light cargo pants",
+      "light blue lanyard/strap",
+      "ring"
+    ],
+    "colors": [
+      "black",
+      "light grey/beige",
+      "light blue",
+      "white"
+    ]
+  },
+  "activity": {
+    "description": "The person is standing and making subtle adjustments to their clothing, specifically pulling down their hoodie and adjusting the light blue strap. They turn slightly from side to side and look around, eventually turning to face the camera directly, suggesting they are posing or getting ready for a shot.",
+    "actions": [
+      "standing",
+      "adjusting clothing",
+      "turning body",
+      "looking around",
+      "looking at camera",
+      "subtle hand gestures"
+    ],
+    "intensity": "low"
+  },
+  "background": {
+    "description": "The setting appears to be a modern indoor public space, possibly a hallway or atrium of a building. The floor is made of light grey concrete or large square tiles. On the left, there is a wall with a textured, slatted or corrugated design, likely made of wood or metal, in a dark grey or brown shade. On the right, there are wooden panels or shutters. A light grey cylindrical pillar is visible in the mid-ground. The ceiling features bright fluorescent light fixtures. A wooden tabletop or counter is partially visible on the far right edge of the frame.",
+    "location_type": "indoor",
+    "environment": "modern building interior (hallway/atrium), concrete floor, textured walls (slatted/paneled), cylindrical pillar, wooden countertop",
+    "lighting": "bright, artificial (fluorescent lighting), likely supplemented by ambient light"
+  },
+  "summary": "A person wearing a black quarter-zip hoodie and light cargo pants is standing in a well-lit, modern indoor setting, adjusting their attire and posing for the camera.",
+  "analyzed_at": "2025-10-29T18:05:12.832Z",
+  "video_file": "video-1761761096120-69444659.MOV",
+  "video_size_mb": 0.7990894317626953
+}

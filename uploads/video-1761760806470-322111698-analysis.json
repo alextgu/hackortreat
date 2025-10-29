@@ -1,0 +1,36 @@
+{
+  "outfit": {
+    "description": "The person is wearing a bright royal blue long-sleeved crew-neck sweatshirt or hoodie. They are also wearing light grey or light-wash denim pants. They have long, dark, straight hair, parted on the side, that falls over their shoulders. They are wearing dark-rimmed glasses and a watch on their left wrist.",
+    "items": [
+      "sweatshirt",
+      "pants",
+      "glasses",
+      "watch"
+    ],
+    "colors": [
+      "royal blue",
+      "light grey",
+      "dark"
+    ]
+  },
+  "activity": {
+    "description": "The person is sitting at a wooden table and actively working on a silver laptop. They are typing on the keyboard and looking at the screen.",
+    "actions": [
+      "sitting",
+      "typing",
+      "looking at screen",
+      "using laptop"
+    ],
+    "intensity": "low"
+  },
+  "background": {
+    "description": "The setting is an indoor environment, likely a library, cafe, or shared workspace. The person is seated at a rectangular wooden table. On the table, there is the laptop, a light-colored cup or bottle, and another water bottle. In the background, there are vertical wooden slat panels, possibly a wall or partition. The floor appears to be light-colored tile or concrete. There are reflections from what appears to be a window or strong light source, creating some glare.",
+    "location_type": "indoor",
+    "environment": "wooden table, wooden slat panels, light-colored floor, other tables/chairs (partially visible)",
+    "lighting": "well-lit, with some natural light or strong artificial light creating glare"
+  },
+  "summary": "A person with long dark hair and glasses, dressed in a royal blue sweatshirt and light pants, is seen sitting at a wooden table in an indoor setting, actively typing and working on a silver laptop.",
+  "analyzed_at": "2025-10-29T18:00:17.933Z",
+  "video_file": "video-1761760806470-322111698.MOV",
+  "video_size_mb": 0.6293048858642578
+}

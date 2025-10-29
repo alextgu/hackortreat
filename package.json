@@ -1,0 +1,31 @@
+{
+  "name": "hackortreat",
+  "version": "1.0.0",
+  "description": "Video recording with AI analysis + LinkedIn content generator",
+  "main": "backend/video/server.js",
+  "scripts": {
+    "start": "node backend/video/server.js",
+    "start:video": "node backend/video/server.js",
+    "start:content": "cd backend/content && python server.py",
+    "test-ai": "node test-analyzer.js",
+    "dev": "npm run start:video"
+  },
+  "keywords": [
+    "video",
+    "recording",
+    "camera",
+    "phone",
+    "upload"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "dotenv": "^17.2.3",
+    "express": "^4.18.2",
+    "multer": "^1.4.5-lts.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
