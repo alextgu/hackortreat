@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📹 Record Video</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 30px;
+        }
+        
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        
+        video {
+            width: 100%;
+            border-radius: 12px;
+            background: #000;
+            margin-bottom: 20px;
+            display: none;
+        }
+        
+        video.active {
+            display: block;
+        }
+        
+        .controls {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        button {
+            padding: 16px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        button:active {
+            transform: scale(0.98);
+        }
+        
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #5568d3;
+        }
+        
+        .btn-danger {
+            background: #ef4444;
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background: #dc2626;
+        }
+        
+        .btn-success {
+            background: #10b981;
+            color: white;
+        }
+        
+        .btn-success:hover {
+            background: #059669;
+        }
+        
+        .hidden {
+            display: none !important;
+        }
+        
+        .status {
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .status.info {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+        
+        .status.success {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        
+        .status.error {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+        
+        .status.recording {
+            background: #fef3c7;
+            color: #92400e;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .timer {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin: 15px 0;
+            color: #ef4444;
+        }
+        
+        .file-input-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .file-input-wrapper input[type=file] {
+            position: absolute;
+            left: -9999px;
+        }
+        
+        .upload-progress {
+            width: 100%;
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        
+        .upload-progress-bar {
+            height: 100%;
+            background: #667eea;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📹 Record Video</h1>
+        <p class="subtitle">Record a video for LinkedIn post generation with AI analysis</p>
+        
+        <div id="status" class="status info">
+            📱 Tap "Select Video from Camera Roll" to choose or record a video
+        </div>
+        
+        <div id="timer" class="timer hidden">00:00</div>
+        
+        <video id="preview" playsinline autoplay muted></video>
+        <video id="playback" playsinline controls></video>
+        
+        <div class="controls">
+            <div class="file-input-wrapper">
+                <button id="selectBtn" class="btn-success" style="font-size: 18px; padding: 20px;">
+                    <span>📱</span> Select Video from Camera Roll
+                </button>
+                <input type="file" id="fileInput" accept="video/*" capture="environment">
+            </div>
+            
+            <p style="text-align: center; margin: 15px 0; color: #666; font-size: 14px;">OR</p>
+            
+            <button id="startBtn" class="btn-primary">
+                <span>🎥</span> Record in Browser (Requires HTTPS)
+            </button>
+            
+            <button id="stopBtn" class="btn-danger hidden">
+                <span>⏹️</span> Stop Recording
+            </button>
+            
+            <button id="uploadBtn" class="btn-success hidden">
+                <span>☁️</span> Upload & Analyze
+            </button>
+            
+            <button id="retryBtn" class="btn-primary hidden">
+                <span>🔄</span> Try Again
+            </button>
+        </div>
+        
+        <div id="uploadProgress" class="upload-progress hidden">
+            <div id="uploadProgressBar" class="upload-progress-bar"></div>
+        </div>
+    </div>
+
+    <script>
+        const preview = document.getElementById('preview');
+        const playback = document.getElementById('playback');
+        const startBtn = document.getElementById('startBtn');
+        const stopBtn = document.getElementById('stopBtn');
+        const uploadBtn = document.getElementById('uploadBtn');
+        const retryBtn = document.getElementById('retryBtn');
+        const selectBtn = document.getElementById('selectBtn');
+        const fileInput = document.getElementById('fileInput');
+        const status = document.getElementById('status');
+        const timer = document.getElementById('timer');
+        const uploadProgress = document.getElementById('uploadProgress');
+        const uploadProgressBar = document.getElementById('uploadProgressBar');
+        
+        let mediaRecorder;
+        let recordedChunks = [];
+        let stream;
+        let recordingStartTime;
+        let timerInterval;
+        
+        function updateStatus(message, type = 'info') {
+            status.textContent = message;
+            status.className = `status ${type}`;
+        }
+        
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = seconds % 60;
+            return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+        }
+        
+        function startTimer() {
+            recordingStartTime = Date.now();
+            timer.classList.remove('hidden');
+            timerInterval = setInterval(() => {
+                const elapsed = Math.floor((Date.now() - recordingStartTime) / 1000);
+                timer.textContent = formatTime(elapsed);
+            }, 1000);
+        }
+        
+        function stopTimer() {
+            clearInterval(timerInterval);
+            timer.classList.add('hidden');
+        }
+        
+        async function startRecording() {
+            try {
+                stream = await navigator.mediaDevices.getUserMedia({
+                    video: { 
+                        facingMode: 'user',
+                        width: { ideal: 1280 },
+                        height: { ideal: 720 }
+                    },
+                    audio: true
+                });
+                
+                preview.srcObject = stream;
+                preview.classList.add('active');
+                playback.classList.remove('active');
+                
+                recordedChunks = [];
+                mediaRecorder = new MediaRecorder(stream, {
+                    mimeType: 'video/webm;codecs=vp9'
+                });
+                
+                mediaRecorder.ondataavailable = (e) => {
+                    if (e.data.size > 0) {
+                        recordedChunks.push(e.data);
+                    }
+                };
+                
+                mediaRecorder.onstop = () => {
+                    const blob = new Blob(recordedChunks, { type: 'video/webm' });
+                    playback.src = URL.createObjectURL(blob);
+                    playback.classList.add('active');
+                    preview.classList.remove('active');
+                    
+                    stream.getTracks().forEach(track => track.stop());
+                    
+                    uploadBtn.classList.remove('hidden');
+                    retryBtn.classList.remove('hidden');
+                    stopTimer();
+                };
+                
+                mediaRecorder.start();
+                startTimer();
+                updateStatus('🔴 Recording... Click "Stop" when done', 'recording');
+                startBtn.classList.add('hidden');
+                stopBtn.classList.remove('hidden');
+                selectBtn.parentElement.classList.add('hidden');
+                
+            } catch (err) {
+                console.error('Error accessing camera:', err);
+                if (err.name === 'NotAllowedError') {
+                    updateStatus('❌ Camera permission denied. Use "Select from Camera Roll" instead.', 'error');
+                } else if (err.name === 'NotSupportedError') {
+                    updateStatus('❌ HTTPS required for camera. Use "Select from Camera Roll" instead.', 'error');
+                } else {
+                    updateStatus('❌ Camera not available. Use "Select from Camera Roll" instead.', 'error');
+                }
+            }
+        }
+        
+        function stopRecording() {
+            if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+                mediaRecorder.stop();
+                updateStatus('✅ Recording stopped! Review and upload', 'success');
+                stopBtn.classList.add('hidden');
+            }
+        }
+        
+        async function uploadVideo() {
+            const blob = new Blob(recordedChunks, { type: 'video/webm' });
+            await uploadBlob(blob, 'recorded-video.webm');
+        }
+        
+        async function uploadBlob(blob, filename) {
+            const formData = new FormData();
+            formData.append('video', blob, filename);
+            
+            updateStatus('☁️ Uploading and analyzing...', 'info');
+            uploadBtn.disabled = true;
+            uploadProgress.classList.remove('hidden');
+            
+            try {
+                const xhr = new XMLHttpRequest();
+                
+                xhr.upload.addEventListener('progress', (e) => {
+                    if (e.lengthComputable) {
+                        const percentComplete = (e.loaded / e.total) * 100;
+                        uploadProgressBar.style.width = percentComplete + '%';
+                    }
+                });
+                
+                xhr.addEventListener('load', () => {
+                    if (xhr.status === 200) {
+                        const response = JSON.parse(xhr.responseText);
+                        updateStatus('✅ Video uploaded and AI analysis started!', 'success');
+                        setTimeout(() => {
+                            updateStatus('Video saved. Analysis results will be available shortly.', 'success');
+                        }, 2000);
+                    } else {
+                        updateStatus('❌ Upload failed. Please try again.', 'error');
+                    }
+                    uploadBtn.disabled = false;
+                    uploadProgress.classList.add('hidden');
+                    uploadProgressBar.style.width = '0%';
+                });
+                
+                xhr.addEventListener('error', () => {
+                    updateStatus('❌ Upload failed. Check connection.', 'error');
+                    uploadBtn.disabled = false;
+                    uploadProgress.classList.add('hidden');
+                });
+                
+                xhr.open('POST', '/upload');
+                xhr.send(formData);
+                
+            } catch (err) {
+                console.error('Upload error:', err);
+                updateStatus('❌ Upload failed: ' + err.message, 'error');
+                uploadBtn.disabled = false;
+                uploadProgress.classList.add('hidden');
+            }
+        }
+        
+        function retry() {
+            recordedChunks = [];
+            playback.src = '';
+            playback.classList.remove('active');
+            uploadBtn.classList.add('hidden');
+            retryBtn.classList.add('hidden');
+            startBtn.classList.remove('hidden');
+            selectBtn.parentElement.classList.remove('hidden');
+            updateStatus('📱 Tap "Select Video from Camera Roll" to choose or record a video', 'info');
+        }
+        
+        startBtn.addEventListener('click', startRecording);
+        stopBtn.addEventListener('click', stopRecording);
+        uploadBtn.addEventListener('click', uploadVideo);
+        retryBtn.addEventListener('click', retry);
+        
+        selectBtn.addEventListener('click', () => {
+            fileInput.click();
+        });
+        
+        fileInput.addEventListener('change', async (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                playback.src = URL.createObjectURL(file);
+                playback.classList.add('active');
+                preview.classList.remove('active');
+                
+                startBtn.classList.add('hidden');
+                selectBtn.parentElement.classList.add('hidden');
+                uploadBtn.classList.remove('hidden');
+                retryBtn.classList.remove('hidden');
+                
+                updateStatus('✅ Video selected! Click "Upload & Analyze" to continue', 'success');
+                
+                // Override upload to use selected file
+                uploadBtn.onclick = async () => {
+                    await uploadBlob(file, file.name);
+                };
+            }
+        });
+    </script>
+</body>
+</html>
+
